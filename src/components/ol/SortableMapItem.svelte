@@ -33,18 +33,6 @@
   on:pointerenter|once={() => (load = true)}
   class="cursor-grab hover:cursor-grabbing flex"
 >
-  <input
-    type="radio"
-    class="radio radio-sm {mapZIndex >= $swipeCutThreshold
-      ? 'bg-base-300'
-      : ''}  checked:bg-base-300"
-    disabled={$layerSwipeStatus === "none"}
-    id="swipeValue{mapZIndex}"
-    name="swipeCutThreshold"
-    value={mapZIndex}
-    bind:group={$swipeCutThreshold}
-  />
-  <span class="grow">{item.name}</span>
   <label class="swap">
     <input
       type="checkbox"
@@ -78,6 +66,18 @@
       />
     </svg>
   </label>
+  <span class="grow">{item.name}</span>
+  <input
+    type="radio"
+    class="radio radio-sm {mapZIndex >= $swipeCutThreshold
+      ? 'bg-base-300'
+      : ''}  checked:bg-base-300"
+    disabled={$layerSwipeStatus === "none"}
+    id="swipeValue{mapZIndex}"
+    name="swipeCutThreshold"
+    value={mapZIndex}
+    bind:group={$swipeCutThreshold}
+  />
   <button class="m-1" on:click={zoomToLayer} on:keydown={zoomToLayer}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
