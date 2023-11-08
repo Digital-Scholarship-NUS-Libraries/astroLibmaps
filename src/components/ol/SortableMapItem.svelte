@@ -93,7 +93,7 @@
     </svg>
   </button>
   <a
-    href="/metadata/{link}"
+    href="/metadata/{link}/"
     draggable="true"
     on:dragstart|preventDefault|stopPropagation
   >
