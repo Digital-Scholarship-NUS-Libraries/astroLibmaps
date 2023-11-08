@@ -1,0 +1,199 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME =
+  "1911 - 1:63,360 Map of the Island of Singapore and its Dependencies";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>1911</p>
+    <h3>Description</h3>
+    <p>
+      This map shows Singapore with detail on networks of roads, water features,
+      surrounding islands and boundaries of the various districts. The coastline
+      of Territory of Johore along the Old Strait or Silat Tembrau is also
+      shown.
+    </p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by the Geographical Section, General Staff,
+      Singapore, scanned by Sakinah Yusof, Department of Geography, National
+      University of Singapore, and georeferenced by Leon Gaw Yan Feng.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Geographical Section, General Staff 1911. Map of the Island of Singapore
+      and its Dependencies, 1:63,360. [London]: War Office. In: "Historical Maps
+      of Singapore, digitised by Department of Geography, National University of
+      Singapore, made available by NUS Libraries." https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      SLA is the copyright owner of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>Georeferencing done with SVY21 projection.</li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        18/28 GCPs are of road junctions
+        <ul>
+          <li>
+            Road junctions georectified were primarily those of main roads
+            radiating from the CBD as the small scale map made junctions in the
+            CBD difficult to discern.
+          </li>
+          <li>
+            Further, crowded labelling of roads in the CBD obscured junctions.
+          </li>
+          <li>
+            According to the map legend (References), although some ‘Cart Tracks
+            and Foot Paths’ lined up closely with modern roads, they were not
+            georeferenced ue to their temporary and easily altered nature.
+          </li>
+          <li>
+            Overall, the road network shown on the map is unreliable and not
+            extensive enough, especially in western Singapore, and must be
+            supplemented by geomorphological GCPs for accurate georeferencing
+          </li>
+        </ul>
+      </li>
+      <li>
+        10/28 GCPs are of geomorphological features
+        <ul>
+          <li>
+            Unreclaimed coastlines of mainland Singapore and various offshore
+            islands were used for georeferencing.
+          </li>
+          <li>
+            Offshore islands in the south were used to ensure an even spread of
+            GCPs.
+          </li>
+          <li>
+            The west coast of Singapore had no GCPs as the entire coastline had
+            been altered to accommodate the western catchment.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Transformation Method (27 GCPs)
+        <ul>
+          <li>
+            First order polynomial (Affine Transformation) - RMSE: 0.000850189
+            <p>
+              Coastlines in the north and main roads radiating from the CBD line
+              up well.
+            </p>
+          </li>
+          <li>
+            Spline
+            <p>
+              A spline transformation results are satisfactory as the roads and
+              coastlines on mainland Singapore line up well.
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            The shorelines of offshore islands were not drawn very accurately
+            (P. Tekong Kechil and P. Pawai).
+          </li>
+          <li>
+            Labelling of map features (especially roads) were poorly done as it
+            obstructed them.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Additional notes
+        <ul>
+          <li>
+            It was decided that the coastline of Johor should not be used for
+            georectification because the land survey used to derive this map
+            focused on Singapore and coastlines of Johor may not be accurately
+            drawn, which may affect the results of the georectification.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h4>Ground Control Points</h4>
+    <table>
+      <tr>
+        <td>12.257982</td><td>7.974212</td><td>103.869808</td><td>1.310220</td>
+      </tr>
+      <tr>
+        <td>10.174972</td><td>8.478177</td><td>103.825428</td><td>1.320357</td>
+      </tr>
+      <tr>
+        <td>6.968391</td><td>15.178996</td><td>103.753307</td><td>1.465642</td>
+      </tr>
+      <tr>
+        <td>13.123442</td><td>9.028519</td><td>103.888813</td><td>1.333506</td>
+      </tr>
+      <tr>
+        <td>9.092123</td><td>6.324416</td><td>103.802220</td><td>1.272853</td>
+      </tr>
+      <tr>
+        <td>9.814803</td><td>12.170724</td><td>103.817313</td><td>1.402218</td>
+      </tr>
+      <tr>
+        <td>7.002435</td><td>12.615020</td><td>103.756218</td><td>1.411566</td>
+      </tr>
+      <tr>
+        <td>7.678252</td><td>8.484920</td><td>103.771306</td><td>1.319167</td>
+      </tr>
+      <tr>
+        <td>13.009773</td><td>10.277897</td><td>103.886268</td><td>1.361029</td>
+      </tr>
+      <tr>
+        <td>13.568222</td><td>7.586251</td><td>103.897234</td><td>1.302012</td>
+      </tr>
+      <tr>
+        <td>7.170885</td><td>11.151025</td><td>103.760078</td><td>1.379095</td>
+      </tr>
+      <tr>
+        <td>10.857162</td><td>14.989677</td><td>103.838549</td><td>1.462875</td>
+      </tr>
+      <tr>
+        <td>22.338178</td><td>12.385626</td><td>104.085158</td><td>1.409486</td>
+      </tr>
+      <tr>
+        <td>19.758649</td><td>13.234461</td><td>104.029668</td><td>1.425564</td>
+      </tr>
+      <tr>
+        <td>15.263687</td><td>13.292483</td><td>103.933750</td><td>1.427625</td>
+      </tr>
+      <tr>
+        <td>16.411270</td><td>12.036326</td><td>103.958455</td><td>1.399803</td>
+      </tr>
+      <tr>
+        <td>4.312238</td><td>14.602170</td><td>103.697091</td><td>1.454020</td>
+      </tr>
+      <tr>
+        <td>11.426751</td><td>3.583494</td><td>103.851782</td><td>1.213497</td>
+      </tr>
+      <tr>
+        <td>1.617643</td><td>11.053775</td><td>103.639855</td><td>1.375313</td>
+      </tr>
+      <tr>
+        <td>9.346139</td><td>5.704127</td><td>103.806744</td><td>1.259720</td>
+      </tr>
+      <tr>
+        <td>11.401339</td><td>7.573399</td><td>103.851588</td><td>1.300467</td>
+      </tr>
+    </table>
+  </Fragment>
+</Layout>

@@ -1,0 +1,120 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME = "1974 - Singapore 1:50,000 Topographical Maps";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>1974</p>
+    <h3>Series, Edition</h3>
+    <p>Series SMU 050, Edition 1 SMU</p>
+    <h3>Description</h3>
+    <p>A mosaic of 2 sheets of topographical maps of Singapore:</p>
+    <p>
+      Sheet 1 (Singapore West): This map shows Singapore with detail on networks
+      of roads and railways, international boundaries, water features, relief,
+      buildings and vegetation. The coastline of Johor along the Straits of
+      Johor is also shown.
+    </p>
+    <p>
+      Sheet 2 (Singapore East): This map shows Eastern Singapore with detail on
+      networks of roads and railways, international boundaries, water features,
+      relief, buildings and vegetation. The coastline of Johor along the Straits
+      of Johor is also shown.
+    </p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by the Mapping Unit, Ministry of Defence, Singapore,
+      scanned by Sakinah Yusof, Department of Geography, National University of
+      Singapore (NUS), georeferenced by Leon Gaw Yan Feng and mosaicked by NUS
+      Libraries, with kind permission from Singapore Land Authority and Ministry
+      of Defence for NUS Libraries to provide viewing of the map service over
+      the internet.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Mapping Unit, Ministry of Defence 1974. Singapore, 1:50,000. Singapore:
+      Ministry of Defence. Series SMU 050, Sheet 1 to 2. In: "Historical Maps of
+      Singapore, digitised by Department of Geography, National University of
+      Singapore, made available by NUS Libraries." https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      No reproduction for commercial purposes. See terms of use for details. SLA
+      is the copyright owner of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>
+        Georeferencing done on a data frame with
+        WGS_1984_Web_Mercator_Auxiliary_Sphere projected coordinate system.
+      </li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        Results
+        <ul>
+          <li>
+            1974 East (20 GCPs)
+            <p>
+              First order polynomial (Affine Transformation) - RMSE: 18.3477
+            </p>
+            <p>
+              All GCPs are of road features like junctions, end points or
+              inflexions.
+            </p>
+          </li>
+          <li>
+            1974 West (20 GCPs)
+            <p>
+              First order polynomial (Affine Transformation) - RMSE: 15.9608
+            </p>
+            <p>
+              19/20 of the GCPs are of road features like junctions, end points
+              or inflexions.
+            </p>
+            <p>
+              1/20 GCP are of geomorphological features (coastline of Pulau
+              Bukom).
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            SVY_21 could not be assigned to .jpg images as these would result in
+            an inconsistent extent.
+            <p>This problem did not occur with ArcGIS 10.2.</p>
+            <p>
+              The problem may also be a result of .jpg file format instead of
+              .tiff.
+            </p>
+          </li>
+          <li>
+            Maps are more cluttered as the island of Singapore becomes
+            increasingly urbanized.
+          </li>
+          <li>
+            1974 maps had geographic information of Johor and some road
+            junctions there were used for georectification.
+          </li>
+          <li>
+            Road intersections were the primary GCP used as the maps are more
+            current and matches well with OSM data.
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </Fragment>
+</Layout>

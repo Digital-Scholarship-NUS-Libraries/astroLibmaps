@@ -1,0 +1,201 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME =
+  "1846 - Plan of Singapore Town, Adjoining Districts & Plantations";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>1846</p>
+    <h3>Description</h3>
+    <p>
+      This map shows the demarcation and development of Singapore town and land
+      use of its adjoining districts. This is the most detailed map of
+      Singapore’s town of the time that is known. This map includes Singapore
+      Town, Downtown, Chinatown, Little India, Malay Village, Raffles Place,
+      Orchard, Tiong Bahru, Keppel Road, Telok Ayer, Bras Basah, Kallang, Tanah
+      Merah, Singapore Harbour.
+    </p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by John Turnbull Thomson, a Government Surveyor,
+      Singapore and published by J.M. Richardson in London, scanned by Sakinah
+      Yusof, Department of Geography, National University of Singapore, and
+      georeferenced by Leon Gaw Yan Feng.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      John Turnbull Thomson 1846. Plan of Singapore Town and Adjoining
+      Districts, Scale unclear. London: J. M. Richardson. In: "Historical Maps
+      of Singapore, digitised by Department of Geography, National University of
+      Singapore, made available by NUS Libraries." https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      SLA is the copyright owners of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>Georeferencing done with SVY21 projection.</li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        19/21 GCPs are of road junctions
+        <ul>
+          <li>
+            Majority were located in present-day Chinatown, Raffles Place and
+            Bugis, located at the centre of the map. These were the first areas
+            to be settled by the British and hence have the most extensive road
+            networks that still exist today.
+          </li>
+          <li>
+            To space out GCPs, junctions of arterial roads radiating to the
+            other corners of Singapore were used and they are
+            Kallang-Geylang-Tanah Merah Road, Serangoon Road, Bukit Timah Road
+            and Pasir Panjang Road.
+          </li>
+        </ul>
+      </li>
+      <li>
+        2/21 GCPs are of geomorphological features
+        <ul>
+          <li>
+            They are the southern tip of Labrador Park and the western tip of
+            Sentosa Island, the only features that have not been altered or
+            reclaimed to date.
+          </li>
+          <li>
+            In general, hills and coastlines were not used as they may be
+            levelled or reclaimed, respectively, to accommodate development
+            since 1846.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Transformation Method (21 GCPs)
+        <ul>
+          <li>
+            First order polynomial (Affine Transformation) - RMSE: 0.000421671
+            <p>
+              The 1846 road networks line up in all quadrants of the maps except
+              in the north-western one (end of Bukit Timah Road) possibly due to
+              distortion of the scanned image.
+            </p>
+          </li>
+          <li>
+            *2<sup>nd</sup> order polynomial* - suggested - RMSE: 0.000289214
+            <p>
+              This transformation solves the issue of the distortion by aligning
+              the end of Bukit Timah Road to where it should be without wrapping
+              the map too much. The other road networks still are in accurate
+              positions and are not affected too much by the higher degree.
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            Being new, the British settlement of Singapore did not have many
+            roads spread across the map for georeferencing.
+          </li>
+          <li>
+            The roads in the Kallang District in the north-east were more of
+            plantation tracks that have given way to today’s Kallang industrial
+            and HDB estate.
+          </li>
+          <li>
+            As mentioned before, the fold in the north-western tip of the map
+            produces distortions when georeferencing.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Additional notes
+        <ul>
+          <li>
+            RMSE results are much lower than Isaac’s and Richard’s work as they
+            used the projected co-ordinate system (PCS) of WGS84 UTM 48N while
+            this map used a geographic co-ordinate system (GCS) of SVY21.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h4>Ground Control Points</h4>
+    <table>
+      <tr>
+        <td>1.912025</td><td>3.548363</td><td>103.805246</td><td>1.262461</td>
+      </tr>
+      <tr>
+        <td>2.630847</td><td>2.596975</td><td>103.806708</td><td>1.259631</td>
+      </tr>
+      <tr>
+        <td>19.573166</td><td>17.654716</td><td>103.869709</td><td>1.310134</td>
+      </tr>
+      <tr>
+        <td>13.863927</td><td>11.816984</td><td>103.847856</td><td>1.289592</td>
+      </tr>
+      <tr>
+        <td>14.263495</td><td>11.751716</td><td>103.849399</td><td>1.289249</td>
+      </tr>
+      <tr>
+        <td>17.950324</td><td>17.247252</td><td>103.863986</td><td>1.308654</td>
+      </tr>
+      <tr>
+        <td>12.322561</td><td>12.921631</td><td>103.843106</td><td>1.293530</td>
+      </tr>
+      <tr>
+        <td>25.811232</td><td>19.305844</td><td>103.892196</td><td>1.315119</td>
+      </tr>
+      <tr>
+        <td>7.202641</td><td>20.309655</td><td>103.825425</td><td>1.320359</td>
+      </tr>
+      <tr>
+        <td>26.495603</td><td>19.424976</td><td>103.894115</td><td>1.315389</td>
+      </tr>
+      <tr>
+        <td>14.551026</td><td>10.539795</td><td>103.850437</td><td>1.285040</td>
+      </tr>
+      <tr>
+        <td>9.798316</td><td>19.578231</td><td>103.835116</td><td>1.317125</td>
+      </tr>
+      <tr>
+        <td>16.489791</td><td>19.272351</td><td>103.858692</td><td>1.315947</td>
+      </tr>
+      <tr>
+        <td>14.644271</td><td>12.481598</td><td>103.851056</td><td>1.291813</td>
+      </tr>
+      <tr>
+        <td>9.158667</td><td>16.089813</td><td>103.831793</td><td>1.305103</td>
+      </tr>
+      <tr>
+        <td>4.015183</td><td>5.974674</td><td>103.812119</td><td>1.270224</td>
+      </tr>
+      <tr>
+        <td>16.533701</td><td>15.402479</td><td>103.858526</td><td>1.301971</td>
+      </tr>
+      <tr>
+        <td>14.678517</td><td>14.958937</td><td>103.851590</td><td>1.300480</td>
+      </tr>
+      <tr>
+        <td>10.889083</td><td>8.137444</td><td>103.836931</td><td>1.277408</td>
+      </tr>
+      <tr>
+        <td>6.308485</td><td>4.628820</td><td>103.820097</td><td>1.265589</td>
+      </tr>
+      <tr>
+        <td>13.280830</td><td>9.924575</td><td>103.845785</td><td>1.283238</td>
+      </tr>
+    </table>
+  </Fragment>
+</Layout>

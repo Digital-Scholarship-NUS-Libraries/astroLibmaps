@@ -1,0 +1,290 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME = "1971 - Singapore 1:63,360 Topographical Map";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>1971</p>
+    <h3>Series, Edition</h3>
+    <p>Series Topo 1, Edition 1-SMU</p>
+    <h3>Description</h3>
+    <p>
+      This map shows the entire Singapore with detail on networks of roads and
+      railways, international boundaries, water features, relief, buildings and
+      vegetation.
+    </p>
+    <p>
+      It also covers Jurong, Pandan, Pasir Panjang, Telok Blanga (Blangah), Toa
+      Payoh, South Seletar, Mandai, Kranji, Bukit Timah and Tanglin.
+    </p>
+    <p>
+      It shows Huat Hong Village, Bukit Panjang Village, Bukit Timah Village,
+      Pasir Panjang Village, Holland Village, Chasseriau Estate I and II,
+      Kilburn Estate, National Carbon and Central Refinery in Princess Elizabeth
+      Estate, Princess Margaret Estate, granite quarries including Gammon
+      Granite Quarry, Singapore Granite Quarries, Hindhede Qaurry, Public Works
+      Department Quarry, Nanyang Shoes Factory, Chua Guan Hong Rubber Factory
+      and Hock Thong Rubber Factory in Jurong, Lam Soon Cannery Factory,
+      sewerage disposal site in Pandan, Peirce Reservoir, MacRitchie Reservoir,
+      Pandan Nature Reserve, catchment areas, Bukit Batok, Bukit Tinggi, Mount
+      Echo, Proposed new planning of roads, railway line, rivers, existing and
+      proposed community and public utility facilities and others.
+    </p>
+    <p>The coastline of Johor along the Straits of Johor is also shown.</p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by the Mapping Unit, Ministry of Defence, Singapore,
+      scanned by Sakinah Yusof, Department of Geography, National University of
+      Singapore (NUS), and georeferenced by Leon Gaw Yan Feng, with kind
+      permission from Singapore Land Authority and Ministry of Defence for NUS
+      Libraries to provide viewing of the map service over the internet.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Mapping Unit, Ministry of Defence 1971. Singapore, 1:63,360. Series Topo
+      1, Sheet Singapore, Edition 1-SMU. Singapore: Ministry of Defence. In:
+      "Historical Maps of Singapore, digitised by Department of Geography,
+      National University of Singapore, made available by NUS Libraries."
+      https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      No reproduction for commercial purposes. See terms of use for details. SLA
+      is the copyright owner of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>Georeferencing done with SVY21 projection.</li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        37/43 GCPs are of road junctions
+        <ul>
+          <li>
+            Road network printed on the topographic map closely resembles modern
+            roads, especially in mature estates like Queenstown, Bukit Timah and
+            Geylang Serai.
+          </li>
+          <li>
+            Road end points along stable coastlines also served as GCPs in
+            Kranji an Punggol.
+          </li>
+          <li>
+            Junctions of ‘Main Roads’ (as per map legend) served as reliable
+            control points as roads lower in heirachy are too faint on map or
+            may be temporary in nature such as tracks and footpaths.
+          </li>
+          <li>
+            GCPs were not placed along the runway of Paya Lebar Airport as the
+            runway has been heavily modified (lengthened and expanded) when
+            converted to a military airbase.
+          </li>
+        </ul>
+      </li>
+      <li>
+        8/45 GCPs are of geomorphological features
+        <ul>
+          <li>
+            Coastlines of offshore islands like P. Tekong, P. Ubin and the
+            southern islands were used as GCPs as they are not subject to much
+            modification compared to the coastline of mainland Singapore.
+          </li>
+          <li>
+            GCPs were not placed on stippled coastlines as the exact boundary of
+            the coastline is difficult to ascertain. Coastlines marked with a
+            distinct blue line were preferred.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Transformation Method (45 GCPs)
+        <ul>
+          <li>
+            First order polynomial (Affine Transformation) - RMSE: 0.000296864
+            <p>
+              Coastlines of Singapore and its offshore islands as well as road
+              networks line up properly.
+            </p>
+          </li>
+          <li>
+            3<sup>rd</sup>order polynomial - RMSE: 0.000243437
+            <p>
+              Not much wrap involved which may distort the map as GCPs were
+              evenly spaced throughout the map.
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            Areas in Tampines and Tuas were still undeveloped and hence lacked
+            GCPs as there was no stable points of references there. i.e. The
+            hills in Tampines would have been levelled and land in Tuas
+            reclaimed from the sea.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Additional notes
+        <ul>
+          <li>
+            Coastlines of offshore islands were more accurately drawn compared
+            to the 1911 map of Singapore due to development and military
+            interest in them.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h4>Ground Control Points</h4>
+    <table>
+      <tr
+        ><td>11.412616</td><td>13.107746</td><td>103.779021</td><td>1.337420</td
+        ></tr
+      >
+      <tr>
+        <td>3.207431</td><td>14.322745</td><td>103.797458</td><td>1.455624</td>
+      </tr>
+      <tr>
+        <td>19.880940</td><td>18.092116</td><td>103.851871</td><td>1.213319</td>
+      </tr>
+      <tr>
+        <td>9.749931</td><td>20.463423</td><td>103.886246</td><td>1.361151</td>
+      </tr>
+      <tr>
+        <td>8.873724</td><td>7.274341</td><td>103.695478</td><td>1.373799</td>
+      </tr>
+      <tr>
+        <td>11.699738</td><td>24.698365</td><td>103.946748</td><td>1.332512</td>
+      </tr>
+      <tr>
+        <td>12.254692</td><td>14.046992</td><td>103.792644</td><td>1.324878</td>
+      </tr>
+      <tr>
+        <td>18.838563</td><td>17.254987</td><td>103.839711</td><td>1.228619</td>
+      </tr>
+      <tr>
+        <td>8.598635</td><td>16.455946</td><td>103.828211</td><td>1.377933</td>
+      </tr>
+      <tr>
+        <td>5.584355</td><td>22.192895</td><td>103.910771</td><td>1.421502</td>
+      </tr>
+      <tr>
+        <td>10.352938</td><td>19.826498</td><td>103.876654</td><td>1.352381</td>
+      </tr>
+      <tr>
+        <td>10.733666</td><td>7.998902</td><td>103.705210</td><td>1.347151</td>
+      </tr>
+      <tr>
+        <td>13.987201</td><td>16.578851</td><td>103.829955</td><td>1.299350</td>
+      </tr>
+      <tr>
+        <td>22.690853</td><td>9.619220</td><td>103.728500</td><td>1.173141</td>
+      </tr>
+      <tr>
+        <td>12.156875</td><td>19.156899</td><td>103.866709</td><td>1.325728</td>
+      </tr>
+      <tr>
+        <td>3.360505</td><td>16.726014</td><td>103.831840</td><td>1.453487</td>
+      </tr>
+      <tr>
+        <td>9.646995</td><td>26.401588</td><td>103.971759</td><td>1.361773</td>
+      </tr>
+      <tr>
+        <td>12.604914</td><td>22.428598</td><td>103.914131</td><td>1.319423</td>
+      </tr>
+      <tr>
+        <td>14.429931</td><td>15.593347</td><td>103.815586</td><td>1.293086</td>
+      </tr>
+      <tr>
+        <td>14.697028</td><td>17.946808</td><td>103.849407</td><td>1.289248</td>
+      </tr>
+      <tr>
+        <td>16.094746</td><td>14.646597</td><td>103.801863</td><td>1.268917</td>
+      </tr>
+      <tr>
+        <td>5.614724</td><td>7.815115</td><td>103.703147</td><td>1.421288</td>
+      </tr>
+      <tr>
+        <td>6.902152</td><td>15.713775</td><td>103.817378</td><td>1.402169</td>
+      </tr>
+      <tr>
+        <td>6.270271</td><td>11.492838</td><td>103.755995</td><td>1.411486</td>
+      </tr>
+      <tr>
+        <td>7.848231</td><td>19.301065</td><td>103.868916</td><td>1.388337</td>
+      </tr>
+      <tr>
+        <td>13.696206</td><td>21.483587</td><td>103.900469</td><td>1.303230</td>
+      </tr>
+      <tr>
+        <td>10.350007</td><td>4.031486</td><td>103.647888</td><td>1.352721</td>
+      </tr>
+      <tr>
+        <td>13.059759</td><td>23.086377</td><td>103.923703</td><td>1.312428</td>
+      </tr>
+      <tr>
+        <td>19.613552</td><td>11.683075</td><td>103.758864</td><td>1.217740</td>
+      </tr>
+      <tr>
+        <td>13.178725</td><td>8.938752</td><td>103.718967</td><td>1.311556</td>
+      </tr>
+      <tr>
+        <td>5.399956</td><td>23.268225</td><td>103.926636</td><td>1.423727</td>
+      </tr>
+      <tr>
+        <td>5.253962</td><td>30.392488</td><td>104.029807</td><td>1.425676</td>
+      </tr>
+      <tr>
+        <td>4.451546</td><td>11.388361</td><td>103.754558</td><td>1.438245</td>
+      </tr>
+      <tr>
+        <td>9.704304</td><td>12.258526</td><td>103.767112</td><td>1.361891</td>
+      </tr>
+      <tr>
+        <td>22.201869</td><td>8.975251</td><td>103.719454</td><td>1.180200</td>
+      </tr>
+      <tr>
+        <td>13.274917</td><td>21.060209</td><td>103.894389</td><td>1.309576</td>
+      </tr>
+      <tr>
+        <td>14.465558</td><td>12.319898</td><td>103.767996</td><td>1.292480</td>
+      </tr>
+      <tr>
+        <td>11.634569</td><td>20.673313</td><td>103.889000</td><td>1.333324</td>
+      </tr>
+      <tr>
+        <td>12.127859</td><td>17.433574</td><td>103.841936</td><td>1.326406</td>
+      </tr>
+      <tr>
+        <td>15.426633</td><td>13.558621</td><td>103.785932</td><td>1.278477</td>
+      </tr>
+      <tr>
+        <td>13.308913</td><td>12.601978</td><td>103.772052</td><td>1.309473</td>
+      </tr>
+      <tr>
+        <td>16.727746</td><td>15.004639</td><td>103.806719</td><td>1.259595</td>
+      </tr>
+      <tr>
+        <td>12.660154</td><td>10.690132</td><td>103.744349</td><td>1.318896</td>
+      </tr>
+      <tr>
+        <td>11.766576</td><td>19.986101</td><td>103.878995</td><td>1.331429</td>
+      </tr>
+      <tr>
+        <td>8.162267</td><td>27.079540</td><td>103.981728</td><td>1.383536</td>
+      </tr>
+    </table>
+  </Fragment>
+</Layout>

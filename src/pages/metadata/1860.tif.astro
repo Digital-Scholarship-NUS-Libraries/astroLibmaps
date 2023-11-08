@@ -1,0 +1,215 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME = "ca.1860 - Singapore Residency";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h2 class="mt-4"></h2>
+    <h3>Year of Publication</h3>
+    <p>ca. 1860</p>
+    <h3>Description</h3>
+    <p>Singapore residency map.</p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by J. Moniot, Surveyor General of the Straits
+      Settlements, printed and published by Smith Elder and Co, London, scanned
+      by Sakinah Yusof, Department of Geography, National University of
+      Singapore, and georeferenced by Leon Gaw Yan Feng.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Jules M. Moniot [ca. 1860]. Singapore Residency, Scale unclear. London:
+      Smith, Elder and Co. In: "Historical Maps of Singapore, digitised by
+      Department of Geography, National University of Singapore, made available
+      by NUS Libraries." https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      SLA is the copyright owners of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>Georeferencing done with SVY21 projection.</li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        23/25 GCPs are of road junctions
+        <ul>
+          <li>
+            Road networks on the map (South Singapore), where most junctions are
+            found, are located in the Raffles Place and Bugis districts.
+          </li>
+          <li>
+            Junctions are uncommon outside these areas and if they do appear,
+            are no longer in existence today. Those used (and are still present
+            today) are junctions of major roads today like Paya Lebar Road,
+            Macpherson and Serangoon Road.
+          </li>
+          <li>
+            Roads in Sentosa have changed altogether and hence were not used.
+          </li>
+          <li>
+            No legend was given but roads highlighted in pink were preferred in
+            georeferencing as they were major roads that still exist today.
+          </li>
+        </ul>
+      </li>
+      <li>
+        2/25 GCPs are of geomorphological features
+        <ul>
+          <li>
+            They are the southern tip of Labrador Park and the western tip of
+            Sentosa Island, the only features that have not been altered or
+            reclaimed to date.
+          </li>
+          <li>
+            In general, hills and coastlines were not used as they may be
+            levelled or reclaimed, respectively, to accommodate development
+            since 1846.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Transformation Method (25 GCPs)
+        <ul>
+          <li>
+            First order polynomial (Affine Transformation) - RMSE: 0.000344659
+            <p>Roads on map align well with OSM base layer</p>
+          </li>
+          <li>
+            2<sup>nd</sup> order polynomial - RMSE: 0.000286082
+            <p>
+              Not much difference in terms of alignment with the affine
+              transformation.
+            </p>
+          </li>
+          <li>
+            Spline
+            <p>
+              Roads in CBD do not align properly compared to the former two
+              methods (see Outram Road).
+            </p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            Important to note, no GCPs were placed on the eastern corner of the
+            map on purpose, east of +103.893DD, as that portion of map does not
+            appear to align with the main map.
+          </li>
+          <li>
+            For example, Tanjong Katong Road is suddenly sheared south. However,
+            the other features of the map like Tanah Merah Road and the Table
+            seems to line up fine.
+          </li>
+          <li>
+            It was decided that it is not worth the risk of distorting the map
+            further by placing GCPs there as there are no features there
+            reliable enough to.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Additional notes
+        <ul>
+          <li>
+            Other transformation methods produced maps that were wrapped and
+            distorted beyond recognition, especially in the south-eastern
+            quadrant as there are no GCPs placed there (area of map occupied by
+            “The Strangers’ Guide to the Environs of Singapore”).
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h4>Ground Control Points</h4>
+    <table>
+      <tr>
+        <td>12.946117</td><td>15.583648</td><td>103.849406</td><td>1.289250</td>
+      </tr>
+      <tr>
+        <td>12.631566</td><td>15.771168</td><td>103.848139</td><td>1.289940</td>
+      </tr>
+      <tr>
+        <td>16.157460</td><td>20.050026</td><td>103.861625</td><td>1.306305</td>
+      </tr>
+      <tr>
+        <td>16.759512</td><td>20.258835</td><td>103.864366</td><td>1.307093</td>
+      </tr>
+      <tr>
+        <td>8.894746</td><td>12.092252</td><td>103.833192</td><td>1.276634</td>
+      </tr>
+      <tr>
+        <td>10.603956</td><td>12.579908</td><td>103.840418</td><td>1.278053</td>
+      </tr>
+      <tr>
+        <td>23.132324</td><td>27.376327</td><td>103.888802</td><td>1.333507</td>
+      </tr>
+      <tr>
+        <td>15.360317</td><td>22.716658</td><td>103.858857</td><td>1.316132</td>
+      </tr>
+      <tr>
+        <td>10.860481</td><td>25.355405</td><td>103.841952</td><td>1.326418</td>
+      </tr>
+      <tr>
+        <td>13.646734</td><td>24.547157</td><td>103.852181</td><td>1.323489</td>
+      </tr>
+      <tr>
+        <td>11.528429</td><td>23.217756</td><td>103.844241</td><td>1.318468</td>
+      </tr>
+      <tr>
+        <td>14.868438</td><td>19.302302</td><td>103.856856</td><td>1.303563</td>
+      </tr>
+      <tr>
+        <td>14.391859</td><td>17.777672</td><td>103.855012</td><td>1.297655</td>
+      </tr>
+      <tr>
+        <td>8.345509</td><td>19.730042</td><td>103.831793</td><td>1.305101</td>
+      </tr>
+      <tr>
+        <td>8.151905</td><td>17.384059</td><td>103.831328</td><td>1.296047</td>
+      </tr>
+      <tr>
+        <td>3.829506</td><td>16.075546</td><td>103.815431</td><td>1.291692</td>
+      </tr>
+      <tr>
+        <td>6.611430</td><td>23.719890</td><td>103.825421</td><td>1.320362</td>
+      </tr>
+      <tr>
+        <td>7.796470</td><td>21.851504</td><td>103.829896</td><td>1.312955</td>
+      </tr>
+      <tr>
+        <td>19.895332</td><td>26.512014</td><td>103.876533</td><td>1.330365</td>
+      </tr>
+      <tr>
+        <td>18.545803</td><td>30.592259</td><td>103.871293</td><td>1.346233</td>
+      </tr>
+      <tr>
+        <td>10.080559</td><td>26.455377</td><td>103.838949</td><td>1.330794</td>
+      </tr>
+      <tr>
+        <td>11.655382</td><td>21.093072</td><td>103.844332</td><td>1.310378</td>
+      </tr>
+      <tr>
+        <td>1.762061</td><td>7.539482</td><td>103.806716</td><td>1.259645</td>
+      </tr>
+      <tr>
+        <td>1.253198</td><td>8.420525</td><td>103.805217</td><td>1.262494</td>
+      </tr>
+      <tr>
+        <td>13.504876</td><td>20.107422</td><td>103.851449</td><td>1.305966</td>
+      </tr>
+    </table>
+  </Fragment>
+</Layout>

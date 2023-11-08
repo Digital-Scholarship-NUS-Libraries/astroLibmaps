@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME = "2023 - Satellite";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>2023</p>
+    <h3>Description</h3>
+    <p>
+      This map is produced from data obtained from the Sentinel 2 satellite,
+      processed to remove the clouds. The resolution of the satellite is of 10
+      meters for 1 pixel.
+    </p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by the Centre for Remote Imaging, Sensing and
+      Processing at the National University of Singapore
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Centre for Remote Imaging, Sensing and Processing, National University of
+      Singapore, made available by NUS Libraries." https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      No reproduction for commercial purposes. See terms of use for details.
+      Please contact
+      <a href="mailto:techcentral@nus.edu.sg">techcentral@nus.edu.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+  </Fragment>
+</Layout>

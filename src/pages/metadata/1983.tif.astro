@@ -1,0 +1,278 @@
+---
+import Layout from "../../layouts/Layout.astro";
+const MAPNAME = "1983 - Singapore 1:50,000 Topographical Map";
+---
+
+<Layout
+  title={`Historical Maps of Singapore: ${MAPNAME} - NUS Libraries - Digitised by Department of Geography, National University of Singapore`}
+>
+  <Fragment slot="content">
+    <h2 class="mt-4">{MAPNAME}</h2>
+    <h3>Year of Publication</h3>
+    <p>1983</p>
+    <h3>Series, Edition</h3>
+    <p>Series SMU 075, Edition 3</p>
+    <h3>Description</h3>
+    <p>
+      This map shows the entire Singapore with detail on networks of roads and
+      railways, international boundaries, water features, relief, buildings and
+      vegetation. The coastline of Johore along the Straits of Johore is also
+      shown.
+    </p>
+    <p>
+      Central Region: Bishan, Bukit Merah, Bukit Timah, Novena, Potong Pasir,
+      Queenstown, Tanglin, Tiong Bahru, Toa Payoh, Southern Islands, Bras Basah,
+      Chinatown, Downtown Core, Marina Bay, Marina Centre, Marina East, Marina
+      South, Newton, Orchard, Outram, Raffles Place, River Valley, Rochor,
+      Tanjong Pagar.
+    </p>
+    <p>
+      East Region: Bedok, Changi, Changi Bay, Changi East, Changi Village,
+      Geylang, Kallang, Kallang Bahru, Katong, Marine Parade, Paya Lebar, Pasir
+      Ris, Siglap, Tampines, Tampines North, Ubi.
+    </p>
+    <p>
+      North Region: Central Water Catchment, Lim Chu Kang, Mandai, Sembawang,
+      Simpang, Sungei Kadut, Woodlands, Yishun.
+    </p>
+    <p>
+      North-East Region: Ang Mo Kio, Hougang, North-eastern Islands, Punggol,
+      Seletar, Sengkang, Senoko, Serangoon, Serangoon Gardens, Serangoon North.
+    </p>
+    <p>
+      West Region: Bukit Batok, Bukit Panjang, Boon Lay, Bulim, Choa, Chu Kang,
+      Clementi, Joo Koon, Jurong East, Jurong West, Tengah, Tuas, Tuas South,
+      Western Islands, Western Water Catchment
+    </p>
+    <h3>Credits</h3>
+    <p>
+      This map was produced by the Mapping Unit, Ministry of Defence, Singapore,
+      scanned by Sakinah Yusof, Department of Geography, National University of
+      Singapore (NUS), and georeferenced by Leon Gaw Yan Feng, with kind
+      permission from Singapore Land Authority and Ministry of Defence for NUS
+      Libraries to provide viewing of the map service over the internet.
+    </p>
+    <h3>Suggested Citation</h3>
+    <p>
+      Mapping Unit, Ministry of Defence 1983. Singapore, 1:50,000. Series SMU
+      075, Edition 3. Singapore: Mapping Unit, Ministry of Defence. In:
+      "Historical Maps of Singapore, digitised by Department of Geography,
+      National University of Singapore, made available by NUS Libraries."
+      https://libmaps.nus.edu.sg.
+    </p>
+    <h3>Rights and Restrictions</h3>
+    <p>
+      No reproduction for commercial purposes. See terms of use for details. SLA
+      is the copyright owner of the map. Please contact
+      <a href="mailto:sla_enquiry@sla.gov.sg">sla_enquiry@sla.gov.sg</a>
+       if you wish to use, adapt, or reuse selected map contents.
+    </p>
+    <h3>Georeferencing Information</h3>
+    <h4>Notes</h4>
+    <ol>
+      <li>
+        Georeferencing done on a data frame with
+        WGS_1984_Web_Mercator_Auxiliary_Sphere projected coordinate system.
+      </li>
+      <li>
+        Openstreet map (OSM) basemap was used for georeferencing road junctions
+        while satellite imagery was used for geomorphological features.
+      </li>
+      <li>
+        Results (30 GCPs)
+        <ul>
+          <li>
+            First order polynomial (Affine Transformation) - RMSE: 19.8866
+          </li>
+          <li>
+            29/30 GCPs are of road features like junctions, end points or
+            inflexions.
+          </li>
+          <li>
+            1/30 GCPs are of geomorphological features (coastline of Pulau
+            Senang).
+          </li>
+        </ul>
+      </li>
+      <li>
+        Issues
+        <ul>
+          <li>
+            SVY_21 could not be assigned to .jpg images as these would result in
+            an inconsistent extent.
+            <p>This problem did not occur with ArcGIS 10.2.</p>
+            <p>
+              The problem may also be a result of .jpg file format instead of
+              .tiff.
+            </p>
+          </li>
+          <li>
+            Maps are more cluttered as the island of Singapore becomes
+            increasingly urbanized.
+          </li>
+          <li>
+            1974 maps had geographic information of Johor and some road
+            junctions there were used for georectification.
+          </li>
+          <li>
+            Road intersections were the primary GCP used as the maps are more
+            current and matches well with OSM data.
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <h4>Ground Control Points</h4>
+    <table>
+      <tr>
+        <td>16333.186176</td><td>-17996.877034</td><td>11567668.472009</td><td
+          >146890.010608</td
+        >
+      </tr>
+      <tr>
+        <td>4237.939747</td><td>-35278.244582</td><td>11549311.835177</td><td
+          >159786.037529</td
+        >
+      </tr>
+      <tr>
+        <td>15822.923948</td><td>-41136.781145</td><td>11543116.365817</td><td
+          >147467.872189</td
+        >
+      </tr>
+      <tr>
+        <td>7039.536254</td><td>-22394.108373</td><td>11563002.148683</td><td
+          >156763.934294</td
+        >
+      </tr>
+      <tr>
+        <td>10979.986661</td><td>-33520.153226</td><td>11551188.145589</td><td
+          >152602.916064</td
+        >
+      </tr>
+      <tr>
+        <td>10928.357541</td><td>-10802.612180</td><td>11575301.768639</td><td
+          >152679.870053</td
+        >
+      </tr>
+      <tr>
+        <td>9672.470086</td><td>-14930.285165</td><td>11570900.869264</td><td
+          >154001.802927</td
+        >
+      </tr>
+      <tr>
+        <td>12158.568852</td><td>-21325.500900</td><td>11564128.842579</td><td
+          >151331.222786</td
+        >
+      </tr>
+      <tr>
+        <td>15251.923052</td><td>-29994.371485</td><td>11554941.982574</td><td
+          >148056.431019</td
+        >
+      </tr>
+      <tr>
+        <td>11462.078335</td><td>-38264.898120</td><td>11546156.763469</td><td
+          >152108.729548</td
+        >
+      </tr>
+      <tr>
+        <td>16273.683961</td><td>-36433.265788</td><td>11548094.168074</td><td
+          >146987.392601</td
+        >
+      </tr>
+      <tr>
+        <td>18955.529115</td><td>-29704.879327</td><td>11555246.792536</td><td
+          >144094.318905</td
+        >
+      </tr>
+      <tr>
+        <td>17522.593141</td><td>-32962.462890</td><td>11551769.815909</td><td
+          >145631.549034</td
+        >
+      </tr>
+      <tr>
+        <td>10334.072334</td><td>-26857.456864</td><td>11558260.743269</td><td
+          >153285.512522</td
+        >
+      </tr>
+      <tr>
+        <td>14294.366295</td><td>-25362.944817</td><td>11559836.716937</td><td
+          >149054.451395</td
+        >
+      </tr>
+      <tr>
+        <td>17301.997973</td><td>-27083.054149</td><td>11558020.397314</td><td
+          >145848.612511</td
+        >
+      </tr>
+      <tr>
+        <td>14741.970376</td><td>-21000.366429</td><td>11564481.195094</td><td
+          >148581.938957</td
+        >
+      </tr>
+      <tr>
+        <td>15497.980641</td><td>-14205.984328</td><td>11571689.896228</td><td
+          >147797.438179</td
+        >
+      </tr>
+      <tr>
+        <td>1538.656262</td><td>-26372.185077</td><td>11558777.542767</td><td
+          >162624.974668</td
+        >
+      </tr>
+      <tr>
+        <td>6301.169453</td><td>-30172.776580</td><td>11554752.660669</td><td
+          >157583.956342</td
+        >
+      </tr>
+      <tr>
+        <td>5723.127651</td><td>-40115.756405</td><td>11544192.534283</td><td
+          >158228.663824</td
+        >
+      </tr>
+      <tr>
+        <td>10676.830952</td><td>-40973.560849</td><td>11543315.434481</td><td
+          >152940.968434</td
+        >
+      </tr>
+      <tr>
+        <td>17489.197183</td><td>-44740.475347</td><td>11539293.141411</td><td
+          >145687.175498</td
+        >
+      </tr>
+      <tr>
+        <td>17923.856704</td><td>-23565.171049</td><td>11561734.467056</td><td
+          >145191.955092</td
+        >
+      </tr>
+      <tr>
+        <td>17680.703327</td><td>-20216.057434</td><td>11565322.028425</td><td
+          >145443.913172</td
+        >
+      </tr>
+      <tr>
+        <td>20083.061764</td><td>-26689.464273</td><td>11558445.827381</td><td
+          >142889.757718</td
+        >
+      </tr>
+      <tr>
+        <td>21423.730344</td><td>-28442.424856</td><td>11556568.415831</td><td
+          >141464.168131</td
+        >
+      </tr>
+      <tr>
+        <td>6712.939721</td><td>-11659.545546</td><td>11574419.716378</td><td
+          >157135.935335</td
+        >
+      </tr>
+      <tr>
+        <td>6599.066710</td><td>-859.822377</td><td>11585870.488629</td><td
+          >157225.085624</td
+        >
+      </tr>
+      <tr>
+        <td>32353.900471</td><td>-36425.494036</td><td>11548066.514442</td><td
+          >129849.728096</td
+        >
+      </tr>
+    </table>
+  </Fragment>
+</Layout>
