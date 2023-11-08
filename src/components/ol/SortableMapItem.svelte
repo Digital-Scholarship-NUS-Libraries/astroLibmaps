@@ -19,14 +19,6 @@
   const zoomToLayer = () => {
     $mapInstance?.getView().fit(layerExtent, { duration: 300 });
   };
-
-  const path = item.url.split("/").pop();
-  let link = path;
-  if (window.location.pathname == path) {
-    link = "";
-  } else {
-    link = path;
-  }
 </script>
 
 <span
@@ -93,7 +85,7 @@
     </svg>
   </button>
   <a
-    href="/metadata/{link}/"
+    href="/metadata/{item.url.split('/').pop()}/"
     draggable="true"
     on:dragstart|preventDefault|stopPropagation
   >
