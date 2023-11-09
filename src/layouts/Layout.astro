@@ -38,8 +38,8 @@ const { title } = Astro.props;
       class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
     >
       <header class="grid grid-flow-row lg:grid-flow-col justify-end">
-        <a href="https://nus.edu.sg/nuslibraries" class="h-8 mr-4 align-top">
-<svg xmlns="http://www.w3.org/2000/svg" class="h-8 fill-base-content" viewBox="0 0 225.591 60">
+        <a href="https://nus.edu.sg/nuslibraries" class="h-12 mr-4 align-top">
+<svg xmlns="http://www.w3.org/2000/svg" class="h-12 fill-base-content" viewBox="0 0 225.591 60">
   <defs>
     <clipPath id="a" clipPathUnits="userSpaceOnUse">
       <path d="M-326.757 296.403h841.89v-595.28h-841.89Z"/>
@@ -255,14 +255,14 @@ const { title } = Astro.props;
             Singapore
           </h2>
           <nav class="tabs">
-            <a class="tab tab-bordered text-base-content hover:text-base-content/50" href="/">Home</a>
-            <a class="tab tab-bordered text-base-content hover:text-base-content/50" href="/about">About</a>
-            <a class="tab tab-bordered text-base-content hover:text-base-content/50" href="/termsOfUse">Terms Of Use</a>
+            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/">Home</a>
+            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/about">About</a>
+            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/termsOfUse">Terms Of Use</a>
           </nav>
         </div>
       </header>
       <main class="prose">
-        {Astro.url.pathname != "/" ?
+        {Astro.url.pathname != "/" &&
     <a href="/" class="block mt-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -270,13 +270,13 @@ const { title } = Astro.props;
         viewBox="0 0 384 512"
         role="button"
         tabindex="0"
-        class="fill-current"
+        class="h-12 md:h-8 fill-current"
         ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
         <path
           d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
         ></path>
       </svg>
-    </a> : ""}
+    </a>}
         <slot name="content" />
       </main>
     </div>

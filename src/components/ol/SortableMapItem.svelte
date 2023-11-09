@@ -5,7 +5,6 @@
   import CogLayer from "./CogLayer.svelte";
   export let item: cog;
   export let mapZIndex: number;
-  export let index: number;
   let load = false;
   let visible = false;
   let opacity = 1;
@@ -36,7 +35,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 640 512"
-      class="swap-off fill-base-content"
+      class="h-4 swap-off fill-base-content"
       fill="#777"
     >
       <title>Hide</title>
@@ -49,7 +48,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 576 512"
-      class="swap-on fill-accent-content"
+      class="h-4 swap-on fill-accent-content"
     >
       <title>Show</title>
       <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -75,7 +74,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 448 512"
-      class="fill-base-content"
+      class="h-4 fill-base-content"
     >
       <title>Zoom To Layer</title>
       <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -93,7 +92,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="fill-base-content hover:fill-accent-content"
+      class="h-4 fill-base-content hover:fill-accent-content"
     >
       <title>Information</title>
       <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->

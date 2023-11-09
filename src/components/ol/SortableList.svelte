@@ -69,7 +69,7 @@
 </script>
 
 {#if list && !!list.length}
-  <ul class="menu menu-sm">
+  <ul class="menu">
     {#each list as item, index (getKey(item))}
       <li
         data-index={index}
