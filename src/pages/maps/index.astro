@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+const maps = await getCollection("maps");
+
+import Layout from "../../layouts/Layout.astro";
+const mapsInfo = maps.map((entry) => ({
+  year: entry.data.year,
+  title: entry.data.title,
+  scale: entry.data.scale,
+  slug: entry.slug,
+}));
+---
+
+<Layout title="Metadata">
+  <Fragment slot="content">
+    <table>
+      <thead><td>Year</td><td>Title</td><td>Scale</td></thead>
+      {
+        mapsInfo.map((oneMap) => (
+          <tr>
+            <th>{oneMap.year}</th>
+            <td>
+              <a href=`/maps/${oneMap.slug}`>{oneMap.title}</a>
+            </td>
+            <td>{oneMap.scale}</td>
+          </tr>
+        ))
+      }
+    </table>
+  </Fragment>
+</Layout>

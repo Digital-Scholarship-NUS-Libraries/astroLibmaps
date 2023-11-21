@@ -21,13 +21,14 @@ if(entry.data.scale){
     <h2>Year of Publication</h2>
     <p>{entry.data.year}</p>
     <Content />
-{entry.data.gcp &&
+{
+entry.data.gcp &&
     <h2>Ground Control Points</h2>
     <a href=`${entry.data.gcp}` download>Download here</a>
 }
     <h2>Web Services</h2>
     <p>Use the following address to integrate this map in your GIS software:</p>
-    <pre>{entry.data.TMSurl}</pre>
+    <code>{entry.data.TMSurl}</code>
     {
       entry.data.legacyTMSurl && (
         <>
@@ -35,7 +36,7 @@ if(entry.data.scale){
             If your software doesn't support the webp image format yet, you can
             use our legacy service at this address:
           </p>
-          <pre>{entry.data.legacyTMSurl}</pre>
+          <code>{entry.data.legacyTMSurl}</code>
         </>
       )
     }

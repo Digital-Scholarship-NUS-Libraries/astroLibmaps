@@ -2,7 +2,6 @@
 import { ViewTransitions } from "astro:transitions";
 import { getCollection } from "astro:content";
 import Libmaps from "../components/ol/Libmaps.svelte";
-import NUSLlogo from "../assets/NUSLibraries_H_Black.svg?raw";
 interface Props {
   title: string;
 }
@@ -52,13 +51,13 @@ const metaTitle = `${
       transition:persist="maps"
     />
     <div
-      class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
+      class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
     >
       <header class="grid grid-flow-row lg:grid-flow-col justify-end">
-        <a href="https://nus.edu.sg/nuslibraries" class="mr-4 mb-4 align-top">
+        <a href="/" class="mr-4 mb-4 align-top">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-12 fill-base-content"
+            class="h-8 md:h-12 fill-base-content"
             viewBox="0 0 225.591 60"
           >
             <title>NUS Libraries</title>
@@ -82,6 +81,10 @@ const metaTitle = `${
             >
             <a
               class="tab tab-bordered h-12 text-base-content hover:text-base-content/50"
+              href="/maps">Metadata</a
+            >
+            <a
+              class="tab tab-bordered h-12 text-base-content hover:text-base-content/50"
               href="/termsOfUse">Terms Of Use</a
             >
           </nav>
@@ -90,14 +93,14 @@ const metaTitle = `${
       <main class="prose">
         {
           Astro.url.pathname != "/" && (
-            <div class="flex items-baseline">
-              <a href="/" class="h-12 md:h-8 mt-4 mr-4">
+            <div class="flex items-start">
+              <a href="/" class="h-12 mt-4 mr-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 384 512"
                   role="button"
                   tabindex="0"
-                  class="h-12 md:h-8 fill-current"
+                  class="h-12 fill-current"
                 >
                   <use xlink:href="/xmark.svg#xmark" />
                 </svg>

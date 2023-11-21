@@ -96,7 +96,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="fill-base-content"
+      class="h-4 fill-base-content"
     >
       <title>Opacity</title>
       <use xlink:href="/opacity.svg#opacity" />
