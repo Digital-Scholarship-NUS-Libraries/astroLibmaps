@@ -1,4 +1,5 @@
 export type cog = {
-  url: string;
-  name: string;
+  cogurl: string;
+  shortname: string;
+  slug: string;
 };

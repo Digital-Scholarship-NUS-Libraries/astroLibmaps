@@ -57,7 +57,7 @@
       />
     </svg>
   </label>
-  <span class="grow">{item.name}</span>
+  <span class="grow">{item.shortname}</span>
   <input
     type="radio"
     class="radio radio-sm {mapZIndex >= $swipeCutThreshold
@@ -84,7 +84,7 @@
     </svg>
   </button>
   <a
-    href="/metadata/{item.url.split('/').pop()}/"
+    href="/maps/{item.slug}"
     draggable="true"
     on:dragstart|preventDefault|stopPropagation
   >
@@ -132,7 +132,7 @@
 {/if}
 {#if load}
   <CogLayer
-    url={item.url}
+    url={item.cogurl}
     zIndex={mapZIndex}
     {visible}
     {opacity}

@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  const maps = await getCollection("maps");
+  return maps.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+let title = `${entry.data.year} - ${entry.data.title}`;
+if(entry.data.scale){
+  title += ` (${entry.data.scale})`;
+};
+---
+
+<Layout title={title}>
+  <Fragment slot="content">
+    <h2>Year of Publication</h2>
+    <p>{entry.data.year}</p>
+    <Content />
+{entry.data.gcp &&
+    <h2>Ground Control Points</h2>
+    <a href=`${entry.data.gcp}` download>Download here</a>
+}
+    <h2>Web Services</h2>
+    <p>Use the following address to integrate this map in your GIS software:</p>
+    <pre>{entry.data.TMSurl}</pre>
+    {
+      entry.data.legacyTMSurl && (
+        <>
+          <p>
+            If your software doesn't support the webp image format yet, you can
+            use our legacy service at this address:
+          </p>
+          <pre>{entry.data.legacyTMSurl}</pre>
+        </>
+      )
+    }
+  </Fragment>
+</Layout>

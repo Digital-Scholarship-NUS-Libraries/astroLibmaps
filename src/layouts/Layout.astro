@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { getCollection } from "astro:content";
 import Libmaps from "../components/ol/Libmaps.svelte";
 import NUSLlogo from "../assets/NUSLibraries_H_Black.svg?raw"
 interface Props {
@@ -7,6 +8,12 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
+const maps = await getCollection("maps");
+
+const mapsInfo = maps.map((entry)=>({cogurl: entry.data.cogurl, shortname: entry.data.shortname, slug: entry.slug}));
+
+const metaTitle = `${title && (title + " / ")}Historical Maps of Singapore, digitised by Department of Geography, National University of Singapore`
 ---
 
 <!doctype html>
@@ -15,12 +22,12 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Historical Maps of Singapore, digitised by Department of Geography, National University of Singapore"
+      content={metaTitle}
     />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{metaTitle}</title>
     <ViewTransitions />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X7NLQ7Q24"></script>
@@ -33,7 +40,7 @@ const { title } = Astro.props;
 </script>
   </head>
   <body>
-    <Libmaps client:only="svelte" transition:persist="maps" />
+    <Libmaps client:only="svelte" mapsInfo={mapsInfo} transition:persist="maps" />
     <div
       class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
     >
@@ -71,7 +78,9 @@ const { title } = Astro.props;
           d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
         ></path>
       </svg>
-    </a>}
+    </a>
+        <h1 class="mt-4">{title}</h1>
+        }
         <slot name="content" />
       </main>
     </div>

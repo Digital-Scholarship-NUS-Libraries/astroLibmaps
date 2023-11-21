@@ -4,11 +4,12 @@
   import SortableList from "./SortableList.svelte";
   import SortableMapItem from "./SortableMapItem.svelte";
   import Swipe from "./Swipe.svelte";
-  import { cogs } from "./cogs";
   import { getMapContext } from "./context";
 
+  export let mapsInfo;
+
   const interfaceOffset = tweened(0, { duration: 300, easing: cubicInOut });
-  let cogsList = cogs;
+  let cogsList = mapsInfo;
 
   const toggleInterface = () => {
     if ($interfaceOffset == 0) {
@@ -90,7 +91,13 @@
     />
     <label for="horizontal">Horizontal</label>
   </fieldset>
-  <SortableList list={cogsList} key="url" on:sort={sortList} let:item let:index>
+  <SortableList
+    list={cogsList}
+    key="cogurl"
+    on:sort={sortList}
+    let:item
+    let:index
+  >
     <SortableMapItem {item} mapZIndex={cogsList.length - index} />
   </SortableList>
 </div>
