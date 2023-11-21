@@ -27,7 +27,7 @@
   <label class="swap">
     <input
       type="checkbox"
-      id="visibility"
+      id="visibility{mapZIndex}"
       name="visibility"
       bind:checked={visible}
     />
@@ -58,6 +58,7 @@
       : ''}  checked:bg-base-300"
     disabled={$layerSwipeStatus === "none"}
     id="swipeValue{mapZIndex}"
+    aria-label="Layer swipe"
     name="swipeCutThreshold"
     value={mapZIndex}
     bind:group={$swipeCutThreshold}
