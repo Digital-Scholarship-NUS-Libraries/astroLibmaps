@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { tweened } from "svelte/motion";
-  import { cubicInOut } from "svelte/easing";
   import SortableList from "./SortableList.svelte";
   import SortableMapItem from "./SortableMapItem.svelte";
   import Swipe from "./Swipe.svelte";
@@ -8,14 +6,14 @@
 
   export let mapsInfo;
 
-  const interfaceOffset = tweened(0, { duration: 300, easing: cubicInOut });
+  let interfaceOffset = 0;
   let cogsList = mapsInfo;
 
   const toggleInterface = () => {
-    if ($interfaceOffset == 0) {
-      $interfaceOffset = 1;
+    if (interfaceOffset == 0) {
+      interfaceOffset = 1;
     } else {
-      $interfaceOffset = 0;
+      interfaceOffset = 0;
     }
   };
 
@@ -30,7 +28,7 @@
 <Swipe />
 <div
   id="interfaceButton"
-  style="--offset:{1 - $interfaceOffset}"
+  style="--offset:{1 - interfaceOffset}"
   class="absolute top-52 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80"
 >
   <svg
@@ -47,7 +45,7 @@
 </div>
 <div
   id="interface"
-  style="--offset:{$interfaceOffset};"
+  style="--offset:{interfaceOffset};"
   class="max-h-[calc(100vh-14rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80"
 >
   <svg
@@ -102,9 +100,11 @@
 
 <style>
   #interfaceButton {
+    transition: 0.3s ease-in-out;
     left: calc(var(--offset) * -800px);
   }
   #interface {
+    transition: 0.3s ease-in-out;
     left: calc(var(--offset) * -800px);
   }
 </style>
