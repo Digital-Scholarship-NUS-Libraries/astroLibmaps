@@ -29,7 +29,7 @@
 <div
   id="interfaceButton"
   style="--offset:{1 - interfaceOffset}"
-  class="absolute top-52 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80"
+  class="absolute top-52 sm:top-40 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@
 <div
   id="interface"
   style="--offset:{interfaceOffset};"
-  class="max-h-[calc(100vh-14rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80"
+  class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
