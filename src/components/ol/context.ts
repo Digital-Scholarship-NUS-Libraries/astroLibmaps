@@ -1,6 +1,6 @@
 import type Map from "ol/Map";
 import { getContext, setContext } from "svelte";
-import { readable, writable, type Readable, type Writable } from "svelte/store";
+import { writable, type Writable } from "svelte/store";
 
 export interface MapContext {
   map: Writable<Map | null>;

@@ -1,4 +1,3 @@
-import { number } from "astro/zod";
 import { z, defineCollection } from "astro:content";
 const mapCollection = defineCollection({
   type: "content",
