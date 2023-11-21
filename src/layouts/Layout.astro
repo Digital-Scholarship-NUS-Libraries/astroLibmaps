@@ -2,7 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import { getCollection } from "astro:content";
 import Libmaps from "../components/ol/Libmaps.svelte";
-import NUSLlogo from "../assets/NUSLibraries_H_Black.svg?raw"
+import NUSLlogo from "../assets/NUSLibraries_H_Black.svg?raw";
 interface Props {
   title: string;
 }
@@ -11,43 +11,57 @@ const { title } = Astro.props;
 
 const maps = await getCollection("maps");
 
-const mapsInfo = maps.map((entry)=>({cogurl: entry.data.cogurl, shortname: entry.data.shortname, slug: entry.slug}));
+const mapsInfo = maps.map((entry) => ({
+  cogurl: entry.data.cogurl,
+  shortname: entry.data.shortname,
+  slug: entry.slug,
+}));
 
-const metaTitle = `${title && (title + " / ")}Historical Maps of Singapore, digitised by Department of Geography, National University of Singapore`
+const metaTitle = `${
+  title && title + " / "
+}Historical Maps of Singapore, digitised by Department of Geography, National University of Singapore`;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content={metaTitle}
-    />
+    <meta name="description" content={metaTitle} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{metaTitle}</title>
     <ViewTransitions />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8X7NLQ7Q24"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X7NLQ7Q24"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-8X7NLQ7Q24');
-</script>
+      gtag("config", "G-8X7NLQ7Q24");
+    </script>
   </head>
   <body>
-    <Libmaps client:only="svelte" mapsInfo={mapsInfo} transition:persist="maps" />
+    <Libmaps
+      client:only="svelte"
+      mapsInfo={mapsInfo}
+      transition:persist="maps"
+    />
     <div
       class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
     >
       <header class="grid grid-flow-row lg:grid-flow-col justify-end">
         <a href="https://nus.edu.sg/nuslibraries" class="mr-4 mb-4 align-top">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 fill-base-content" viewBox="0 0 225.591 60">
-            <use xlink:href="/NUSLlogo.svg#nusllogo"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-12 fill-base-content"
+            viewBox="0 0 225.591 60"
+          >
+            <use xlink:href="/NUSLlogo.svg#nusllogo"></use>
           </svg>
         </a>
         <div>
@@ -57,29 +71,39 @@ const metaTitle = `${title && (title + " / ")}Historical Maps of Singapore, digi
             Singapore
           </h2>
           <nav class="tabs">
-            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/">Home</a>
-            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/about">About</a>
-            <a class="tab tab-bordered h-12 text-base-content hover:text-base-content/50" href="/termsOfUse">Terms Of Use</a>
+            <a
+              class="tab tab-bordered h-12 text-base-content hover:text-base-content/50"
+              href="/">Home</a
+            >
+            <a
+              class="tab tab-bordered h-12 text-base-content hover:text-base-content/50"
+              href="/about">About</a
+            >
+            <a
+              class="tab tab-bordered h-12 text-base-content hover:text-base-content/50"
+              href="/termsOfUse">Terms Of Use</a
+            >
           </nav>
         </div>
       </header>
       <main class="prose">
-        {Astro.url.pathname != "/" &&
-    <a href="/" class="block mt-4">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="2em"
-        viewBox="0 0 384 512"
-        role="button"
-        tabindex="0"
-        class="h-12 md:h-8 fill-current"
-        ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-        <path
-          d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
-        ></path>
-      </svg>
-    </a>
-        <h1 class="mt-4">{title}</h1>
+        {
+          Astro.url.pathname != "/" && (
+            <div class="flex items-baseline">
+              <a href="/" class="h-12 md:h-8 mt-4 mr-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  role="button"
+                  tabindex="0"
+                  class="h-12 md:h-8 fill-current"
+                >
+                  <use xlink:href="/xmark.svg#xmark" />
+                </svg>
+              </a>
+              <h1 class="mt-4">{title}</h1>
+            </div>
+          )
         }
         <slot name="content" />
       </main>
