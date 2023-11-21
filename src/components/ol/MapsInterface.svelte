@@ -38,7 +38,7 @@
     tabindex="0"
     on:click={toggleInterface}
     on:keydown={toggleInterface}
-    class="h-12 fill-current"
+    class="h-10 fill-current"
   >
     <use xlink:href="/layers.svg#layers" />
   </svg>
@@ -55,7 +55,7 @@
     tabindex="0"
     on:click={toggleInterface}
     on:keydown={toggleInterface}
-    class="h-12 fill-current"
+    class="h-10 fill-current"
   >
     <use xlink:href="/xmark.svg#xmark" />
   </svg>
