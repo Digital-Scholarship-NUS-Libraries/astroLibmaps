@@ -27,6 +27,26 @@ const metaTitle = `${
     <meta charset="UTF-8" />
     <meta name="description" content={metaTitle} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://libmaps.nus.edu.sg" />
+    <meta name="twitter:title" content="Historical Maps of Singapore" />
+    <meta
+      name="twitter:description"
+      content="Digitised by Deparment of Geography, National University of Singapore. Made available by NUS Libraries."
+    />
+    <meta name="twitter:domain" content="nus.edu.sg" />
+    <meta property="og:site_name" content="Historical Maps of Singapore" />
+    <meta name="twitter:image:src" content="/squareCard.png" />
+    <meta name="twitter:image:width" content="680" />
+    <meta name="twitter:image:height" content="680" />
+    <meta property="og:url" content="https://libmaps.nus.edu.sg" />
+    <meta property="og:title" content="Historical Maps of Singapore" />
+    <meta property="og:image" content="/ogImage.png" />
+    <meta
+      property="og:description"
+      content="Digitised by Deparment of Geography, National University of Singapore. Made available by NUS Libraries."
+    />
+    <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{metaTitle}</title>
@@ -45,11 +65,7 @@ const metaTitle = `${
     </script>
   </head>
   <body>
-    <Libmaps
-      client:only="svelte"
-      mapsInfo={mapsInfo}
-      transition:persist="maps"
-    />
+    <Libmaps client:load mapsInfo={mapsInfo} transition:persist="maps" />
     <div
       class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
     >
