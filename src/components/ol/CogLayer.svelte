@@ -8,8 +8,6 @@
   export let zIndex: number = 0;
   export let visible: boolean;
   export let opacity = 1;
-  export let layerExtent: number[];
-  // export let title: string;
 
   const {
     map: mapInstance,
@@ -30,10 +28,6 @@
     source: cogSource,
     visible,
     zIndex,
-  });
-
-  cogSource.getView().then((view) => {
-    layerExtent = view.extent;
   });
 
   $: cogLayer.setZIndex(zIndex);

@@ -8,7 +8,6 @@
   let load = false;
   let visible = false;
   let opacity = 1;
-  let layerExtent: number[];
 
   const {
     map: mapInstance,
@@ -16,7 +15,7 @@
     swipeCutThreshold,
   } = getMapContext();
   const zoomToLayer = () => {
-    $mapInstance?.getView().fit(layerExtent, { duration: 300 });
+    $mapInstance?.getView().fit(item.extent, { duration: 300 });
   };
 </script>
 
@@ -116,11 +115,5 @@
   </transparencyslider>
 {/if}
 {#if load}
-  <CogLayer
-    url={item.cogurl}
-    zIndex={mapZIndex}
-    {visible}
-    {opacity}
-    bind:layerExtent
-  />
+  <CogLayer url={item.cogurl} zIndex={mapZIndex} {visible} {opacity} />
 {/if}

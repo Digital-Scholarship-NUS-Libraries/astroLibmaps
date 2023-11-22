@@ -6,6 +6,7 @@ title: 2023 Cloudless Satellite Imagery
 shortname: 2023 Satellite
 year: 2023
 scale: 10m/pixel
+extent: [103.55712890625, 1.16447060718059, 104.150390625, 1.5159363834517023]
 ---
 
 ## Description

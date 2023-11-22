@@ -10,6 +10,7 @@ const mapCollection = defineCollection({
     year: z.union([z.string(), z.number()]),
     scale: z.string().optional(),
     gcp: z.string().optional(),
+    extent: z.number().array(),
   }),
 });
 export const collections = {

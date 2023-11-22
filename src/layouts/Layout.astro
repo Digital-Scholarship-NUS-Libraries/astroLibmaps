@@ -13,6 +13,7 @@ const maps = await getCollection("maps");
 const mapsInfo = maps.map((entry) => ({
   cogurl: entry.data.cogurl,
   shortname: entry.data.shortname,
+  extent: entry.data.extent,
   slug: entry.slug,
 }));
 
