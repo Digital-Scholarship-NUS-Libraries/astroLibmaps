@@ -91,9 +91,3 @@
     {/each}
   </ul>
 {/if}
-
-<style>
-  .over {
-    border-color: rgba(48, 12, 200, 0.2);
-  }
-</style>

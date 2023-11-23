@@ -3,6 +3,7 @@
   import Map from "ol/Map";
   import { useGeographic } from "ol/proj";
   import View from "ol/View";
+  import Attribution from "ol/control/Attribution";
   import { onMount } from "svelte";
   import { createMapContext } from "./context";
 
@@ -24,6 +25,7 @@
 
   onMount(() => {
     useGeographic();
+    const attribution = new Attribution({});
     $mapInstance = new Map({
       target: mapId,
       layers: [],
@@ -34,7 +36,7 @@
         maxZoom,
         extent: [103.130035, 0.822573, 104.801331, 1.724593],
       }),
-      controls: [],
+      controls: [attribution],
     });
 
     $mapInstance.on("rendercomplete", () => {
@@ -46,24 +48,8 @@
   });
 </script>
 
-<div id={mapId} class="map">
+<div id={mapId} class="h-screen">
   {#if !!$mapInstance}
     <slot />
   {/if}
 </div>
-
-<style>
-  .map {
-    height: 100vh;
-  }
-
-  :global(.layer-visibility) {
-    position: unset;
-    width: fit-content;
-    margin-top: 0.3em;
-    margin-right: 1em;
-  }
-  :global(.layer-visibility button) {
-    width: auto;
-  }
-</style>

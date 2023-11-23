@@ -34,19 +34,20 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 640 512"
-      class="h-4 swap-off fill-base-content"
+      class="h-4 swap-off fill-current !opacity-30"
+      class:scale-0={visible}
     >
-      <title>Hide</title>
-      <use xlink:href="/eye.svg#eye" />
+      <title>Toggle visibility</title>
+      <use xlink:href="/eye-slash.svg#eye-slash" />
     </svg>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 576 512"
-      class="h-4 swap-on fill-accent-content"
+      class="h-4 swap-on fill-current"
     >
-      <title>Show</title>
-      <use xlink:href="/eye-slash.svg#eye-slash" />
+      <title>Toggle visibility</title>
+      <use xlink:href="/eye.svg#eye" />
     </svg>
   </label>
   <span class="grow">{item.shortname}</span>
@@ -63,15 +64,17 @@
   <label
     for="swipeValue{mapZIndex}"
     title="Cut this layer with the layer swipe"
-    class=""
+    class="w-4 mr-1"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 ml-1 mr-4 fill-current"
-      class:opacity-30={$layerSwipeStatus == "none" ||
-        mapZIndex < $swipeCutThreshold}
+      class="h-4 ml-1 mr-4 fill-current opacity-10"
+      class:opacity-30={mapZIndex < $swipeCutThreshold &&
+        ["vertical", "horizontal"].includes($layerSwipeStatus)}
+      class:opacity-100={mapZIndex >= $swipeCutThreshold &&
+        ["vertical", "horizontal"].includes($layerSwipeStatus)}
       class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
     >
       <use xlink:href="/scissor.svg#scissor" />
@@ -82,7 +85,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 448 512"
-      class="h-4 fill-base-content"
+      class="h-4 fill-current opacity-30 hover:opacity-100"
     >
       <title>Zoom To Layer</title>
       <use xlink:href="/extent.svg#extent" />
@@ -97,7 +100,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 fill-base-content hover:fill-accent-content"
+      class="h-4 fill-current opacity-30 hover:opacity-100"
     >
       <title>Information</title>
       <use xlink:href="/info.svg#info" />

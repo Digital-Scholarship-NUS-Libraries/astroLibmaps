@@ -47,9 +47,8 @@
     if (zIndex >= $swipeCutThreshold && $layerSwipeStatus != "none") {
       gl.enable(gl.SCISSOR_TEST);
 
-      const mapSize = $mapInstance.getSize(); // [width, height] in CSS pixels
+      const mapSize = $mapInstance.getSize();
 
-      // get render coordinates and dimensions given CSS coordinates
       const bottomLeft = getRenderPixel(event, [0, mapSize[1]]);
       const topRight = getRenderPixel(event, [mapSize[0], 0]);
 

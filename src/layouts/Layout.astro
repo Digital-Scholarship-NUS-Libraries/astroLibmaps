@@ -65,7 +65,7 @@ const metaTitle = `${
       gtag("config", "G-8X7NLQ7Q24");
     </script>
   </head>
-  <body>
+  <body class="m-0">
     <Libmaps client:load mapsInfo={mapsInfo} transition:persist="maps" />
     <div
       class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4"
@@ -129,10 +129,5 @@ const metaTitle = `${
         <slot name="content" />
       </main>
     </div>
-    <style is:global>
-      body {
-        margin: 0;
-      }
-    </style>
   </body>
 </html>
