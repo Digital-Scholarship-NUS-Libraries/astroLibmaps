@@ -52,16 +52,31 @@
   <span class="grow">{item.shortname}</span>
   <input
     type="radio"
-    class="radio radio-sm {mapZIndex >= $swipeCutThreshold
-      ? 'bg-base-300'
-      : ''}  checked:bg-base-300"
+    class="hidden"
     disabled={$layerSwipeStatus === "none"}
     id="swipeValue{mapZIndex}"
-    aria-label="Layer swipe"
+    title="Cut this layer with the layer swipe"
     name="swipeCutThreshold"
     value={mapZIndex}
     bind:group={$swipeCutThreshold}
   />
+  <label
+    for="swipeValue{mapZIndex}"
+    title="Cut this layer with the layer swipe"
+    class=""
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="1em"
+      viewBox="0 0 512 512"
+      class="h-4 ml-1 mr-4 fill-current"
+      class:opacity-30={$layerSwipeStatus == "none" ||
+        mapZIndex < $swipeCutThreshold}
+      class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
+    >
+      <use xlink:href="/scissor.svg#scissor" />
+    </svg>
+  </label>
   <button class="m-1" on:click={zoomToLayer} on:keydown={zoomToLayer}>
     <svg
       xmlns="http://www.w3.org/2000/svg"

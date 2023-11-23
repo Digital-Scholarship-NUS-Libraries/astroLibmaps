@@ -20,6 +20,19 @@
 </script>
 
 {#if $layerSwipeStatus != "none"}
+  {#if $layerSwipeStatus === "horizontal"}
+    <divider
+      style="--offset:{$layerSwipeValue.y * window.innerHeight - 4 + 'px'};"
+      class="absolute top-[var(--offset)] block w-full h-2 backdrop-blur-md bg-base-100/50"
+      >aaa
+    </divider>
+  {:else}
+    <divider
+      style="--offset:{$layerSwipeValue.x * window.innerWidth - 4 + 'px'};"
+      class="absolute top-0 left-[var(--offset)] block h-full w-2 backdrop-blur-md bg-base-100/50"
+      >bbb
+    </divider>
+  {/if}
   <swipeContainer
     class="absolute top-0 h-full w-full pointer-events-none grid place-items-center"
   >
@@ -28,7 +41,8 @@
       use:draggable={$layerSwipeStatus == "vertical"
         ? { axis: "x" }
         : { axis: "y" }}
-      class:horizontal={$layerSwipeStatus == "horizontal"}
+      class:cursor-ns-resize={$layerSwipeStatus == "horizontal"}
+      class:cursor-ew-resize={$layerSwipeStatus != "horizontal"}
       on:neodrag={(e) => {
         position = { x: e.detail.offsetX, y: e.detail.offsetY };
         $layerSwipeValue = {
@@ -67,12 +81,3 @@
     </swipe>
   </swipeContainer>
 {/if}
-
-<style>
-  swipe {
-    cursor: ew-resize;
-  }
-  swipe.horizontal {
-    cursor: ns-resize;
-  }
-</style>

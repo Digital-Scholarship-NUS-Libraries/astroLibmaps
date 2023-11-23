@@ -28,8 +28,8 @@
 <Swipe />
 <div
   id="interfaceButton"
-  style="--offset:{1 - interfaceOffset}"
-  class="absolute top-52 sm:top-40 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80"
+  style="--offset:{-800 * (1 - interfaceOffset) + 'px'}"
+  class="absolute top-52 left-[var(--offset)] sm:top-40 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +45,8 @@
 </div>
 <div
   id="interface"
-  style="--offset:{interfaceOffset};"
-  class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80"
+  style="--offset:{-800 * interfaceOffset + 'px'};"
+  class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 left-[var(--offset)] sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -59,34 +59,48 @@
   >
     <use xlink:href="/xmark.svg#xmark" />
   </svg>
-  <fieldset>
-    <legend>Layer swipe</legend>
-    <input
-      type="radio"
-      id="none"
-      name="layerswipe"
-      value="none"
-      checked
-      bind:group={$layerSwipeStatus}
-    />
-    <label for="none">None</label>
-    <input
-      type="radio"
-      id="vertical"
-      name="layerswipe"
-      value="vertical"
-      bind:group={$layerSwipeStatus}
-    />
-    <label for="vertical">Vertical</label>
-    <input
-      type="radio"
-      id="horizontal"
-      name="layerswipe"
-      value="horizontal"
-      bind:group={$layerSwipeStatus}
-    />
-    <label for="horizontal">Horizontal</label>
-  </fieldset>
+  <div class="mt-4 flex items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="1em"
+      viewBox="0 0 512 512"
+      class="h-5 ml-1 mr-4 fill-current"
+      class:opacity-30={$layerSwipeStatus == "none"}
+      class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
+    >
+      <use xlink:href="/scissor.svg#scissor" />
+    </svg>
+    <fieldset class="join">
+      <input
+        type="radio"
+        id="none"
+        name="layerswipe"
+        value="none"
+        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
+        aria-label="None"
+        checked
+        bind:group={$layerSwipeStatus}
+      />
+      <input
+        type="radio"
+        id="vertical"
+        name="layerswipe"
+        value="vertical"
+        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
+        aria-label="Vertical"
+        bind:group={$layerSwipeStatus}
+      />
+      <input
+        type="radio"
+        id="horizontal"
+        name="layerswipe"
+        value="horizontal"
+        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
+        aria-label="Horizontal"
+        bind:group={$layerSwipeStatus}
+      />
+    </fieldset>
+  </div>
   <SortableList
     list={cogsList}
     key="cogurl"
@@ -97,14 +111,3 @@
     <SortableMapItem {item} mapZIndex={cogsList.length - index} />
   </SortableList>
 </div>
-
-<style>
-  #interfaceButton {
-    transition: 0.3s ease-in-out;
-    left: calc(var(--offset) * -800px);
-  }
-  #interface {
-    transition: 0.3s ease-in-out;
-    left: calc(var(--offset) * -800px);
-  }
-</style>
