@@ -3,6 +3,7 @@
   import SortableMapItem from "./SortableMapItem.svelte";
   import Zoom from "./Zoom.svelte";
   import Geolocation from "./Geolocation.svelte";
+  import Fullscreen from "./Fullscreen.svelte";
   import Swipe from "./Swipe.svelte";
   import { getMapContext } from "./context";
 
@@ -64,6 +65,7 @@
     </button>
     <Zoom />
     <Geolocation />
+    <Fullscreen />
   </div>
   <div class="mt-4 flex items-center">
     <svg
