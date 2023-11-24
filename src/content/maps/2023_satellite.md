@@ -2,7 +2,7 @@
 cogurl: https://d39hmjnw8fb16p.cloudfront.net/SG_Sentinel2_2023_cloudfreemosaic_COG.tif
 TMSurl: https://libmaps.nus.edu.sg/services/SG_Sentinel2_2023_cloudfreemosaic_COG/{z}/{y}/{x}
 legacyTMSurl: https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/SG_Sentinel2_2023_cloudfreemosaic_COG/MapServer/tile/{z}/{y}/{x}
-title: 2023 Cloudless Satellite Imagery
+title: Cloudless Satellite Imagery
 shortname: 2023 Satellite
 year: 2023
 scale: 10m/pixel
@@ -23,4 +23,4 @@ Centre for Remote Imaging, Sensing and Processing, National University of Singap
 
 ## Rights and Restrictions
 
-No reproduction for commercial purposes. See terms of use for details. SLA is the copyright owners of the map. Please contact sla_enquiry@sla.gov.sg if you wish to use, adapt, or reuse selected map contents.
+No reproduction for commercial purposes. See terms of use for details.
