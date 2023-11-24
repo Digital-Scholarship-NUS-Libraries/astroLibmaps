@@ -1,7 +1,8 @@
 <script lang="ts">
   import SortableList from "./SortableList.svelte";
   import SortableMapItem from "./SortableMapItem.svelte";
-  import Geolocation from "./geolocation.svelte";
+  import Zoom from "./Zoom.svelte";
+  import Geolocation from "./Geolocation.svelte";
   import Swipe from "./Swipe.svelte";
   import { getMapContext } from "./context";
 
@@ -47,8 +48,12 @@
   style="--offset:{-800 * interfaceOffset + 'px'};"
   class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 left-[var(--offset)] sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
-  <div class="flex items-center">
-    <button on:click={toggleInterface} on:keydown={toggleInterface}>
+  <div class="flex items-center pr-6">
+    <button
+      on:click={toggleInterface}
+      on:keydown={toggleInterface}
+      class="grow"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 384 512"
@@ -57,6 +62,7 @@
         <use xlink:href="/xmark.svg#xmark" />
       </svg>
     </button>
+    <Zoom />
     <Geolocation />
   </div>
   <div class="mt-4 flex items-center">
