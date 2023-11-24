@@ -35,16 +35,16 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-5 fill-current opacity-30 hover:opacity-100"
+    class="h-5 fill-current opacity-70 hover:opacity-100"
   >
     <use xlink:href="/zoomIn.svg#zoomIn" />
   </svg>
 </button>
-<button on:click={handleZoomOut} on:keydown={handleZoomOut} class="mr-4">
+<button on:click={handleZoomOut} on:keydown={handleZoomOut} class="">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-5 fill-current opacity-30 hover:opacity-100"
+    class="h-5 fill-current opacity-70 hover:opacity-100"
   >
     <use xlink:href="/zoomOut.svg#zoomOut" />
   </svg>

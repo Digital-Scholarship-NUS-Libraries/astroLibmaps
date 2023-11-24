@@ -38,7 +38,7 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
-      class="h-10 fill-current"
+      class="h-10 fill-current opacity-70 hover:opacity-100"
     >
       <use xlink:href="/layers.svg#layers" />
     </svg>
@@ -50,22 +50,24 @@
   class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 left-[var(--offset)] sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <div class="flex items-center pr-6">
-    <button
-      on:click={toggleInterface}
-      on:keydown={toggleInterface}
-      class="grow"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 384 512"
-        class="h-10 fill-current"
+    <span class="grow">
+      <button
+        on:click={toggleInterface}
+        on:keydown={toggleInterface}
+        class="opacity-70 hover:opacity-100"
       >
-        <use xlink:href="/xmark.svg#xmark" />
-      </svg>
-    </button>
-    <Zoom />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 384 512"
+          class="h-10 fill-current"
+        >
+          <use xlink:href="/xmark.svg#xmark" />
+        </svg>
+      </button>
+    </span>
     <Geolocation />
     <Fullscreen />
+    <Zoom />
   </div>
   <div class="mt-4 flex items-center">
     <svg
@@ -73,7 +75,7 @@
       height="1em"
       viewBox="0 0 512 512"
       class="h-5 ml-1 mr-4 fill-current"
-      class:opacity-30={$layerSwipeStatus == "none"}
+      class:opacity-40={$layerSwipeStatus == "none"}
       class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
     >
       <use xlink:href="/scissor.svg#scissor" />

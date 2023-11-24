@@ -95,11 +95,11 @@
   });
 </script>
 
-<button on:click={handleGeoLocate} on:keydown={handleGeoLocate}>
+<button on:click={handleGeoLocate} on:keydown={handleGeoLocate} class="mr-3">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-6 fill-current opacity-30 hover:opacity-100"
+    class="h-4 fill-current opacity-70 hover:opacity-100"
   >
     <use xlink:href="/location.svg#location" />
   </svg>

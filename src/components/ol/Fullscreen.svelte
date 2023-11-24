@@ -25,7 +25,7 @@
   };
 </script>
 
-<label class="swap">
+<label class="swap mr-[10px]">
   <input
     type="checkbox"
     id="fullscreen"
@@ -37,7 +37,7 @@
     xmlns="http://www.w3.org/2000/svg"
     height="1em"
     viewBox="0 0 640 512"
-    class="h-4 swap-off fill-current !opacity-30 hover:!opacity-100"
+    class="h-4 swap-off fill-current !opacity-70 hover:!opacity-100"
     class:scale-0={fullscreen}
   >
     <title>Toggle fullscreen</title>
@@ -47,7 +47,7 @@
     xmlns="http://www.w3.org/2000/svg"
     height="1em"
     viewBox="0 0 576 512"
-    class="h-4 swap-on fill-current !opacity-30 hover:!opacity-100"
+    class="h-4 swap-on fill-current !opacity-70 hover:!opacity-100"
     class:scale-0={!fullscreen}
   >
     <title>Toggle fullscreen</title>

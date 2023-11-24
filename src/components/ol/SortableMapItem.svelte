@@ -34,7 +34,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 640 512"
-      class="h-4 swap-off fill-current !opacity-30"
+      class="h-4 swap-off fill-current !opacity-70"
       class:scale-0={visible}
     >
       <title>Toggle visibility</title>
@@ -70,9 +70,9 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 ml-1 mr-4 fill-current opacity-10"
-      class:opacity-30={mapZIndex < $swipeCutThreshold &&
-        ["vertical", "horizontal"].includes($layerSwipeStatus)}
+      class="h-4 ml-1 mr-4 fill-current"
+      class:opacity-40={mapZIndex < $swipeCutThreshold ||
+        $layerSwipeStatus == "none"}
       class:opacity-100={mapZIndex >= $swipeCutThreshold &&
         ["vertical", "horizontal"].includes($layerSwipeStatus)}
       class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
@@ -85,7 +85,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 448 512"
-      class="h-4 fill-current opacity-30 hover:opacity-100"
+      class="h-4 fill-current opacity-70 hover:opacity-100"
     >
       <title>Zoom To Layer</title>
       <use xlink:href="/extent.svg#extent" />
@@ -100,7 +100,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 fill-current opacity-30 hover:opacity-100"
+      class="h-4 fill-current opacity-70 hover:opacity-100"
     >
       <title>Information</title>
       <use xlink:href="/info.svg#info" />
