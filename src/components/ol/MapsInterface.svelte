@@ -10,7 +10,6 @@
   export let mapsInfo;
 
   let interfaceOffset = 0;
-  // let mapsInfo = mapsInfo;
 
   const toggleInterface = () => {
     if (interfaceOffset == 0) {
@@ -21,7 +20,7 @@
   };
 
   const { swipeCutThreshold, layerSwipeStatus } = getMapContext();
-  $swipeCutThreshold = mapsInfo.length;
+  // $swipeCutThreshold = mapsInfo.length;
 
   const sortList = (ev: Event) => {
     mapsInfo = ev.detail;

@@ -16,7 +16,7 @@ export function createMapContext(): MapContext {
   return setContext(MAP_CONTEXT_KEY, {
     map: writable<Map | null>(null),
     renderComplete: writable<boolean>(false),
-    swipeCutThreshold: writable<number>(0),
+    swipeCutThreshold: writable<number>(1),
     layerSwipeStatus: writable<string>("none"),
     layerSwipeValue: writable<{ x: number; y: number }>({ x: 0.5, y: 0.5 }),
   });
