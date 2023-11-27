@@ -76,6 +76,9 @@
       class:opacity-100={mapZIndex >= $swipeCutThreshold &&
         ["vertical", "horizontal"].includes($layerSwipeStatus)}
       class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
+      class:cursor-pointer={["vertical", "horizontal"].includes(
+        $layerSwipeStatus
+      )}
     >
       <use xlink:href="/scissor.svg#scissor" />
     </svg>

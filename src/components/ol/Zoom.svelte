@@ -31,21 +31,33 @@
   };
 </script>
 
-<button on:click={handleZoomIn} on:keydown={handleZoomIn} class="mr-3">
+<button
+  on:click={handleZoomIn}
+  on:keydown={handleZoomIn}
+  class="mr-3"
+  aria-label="Zoom in"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
     class="h-5 fill-current opacity-70 hover:opacity-100"
   >
+    <title>Zoom in</title>
     <use xlink:href="/zoomIn.svg#zoomIn" />
   </svg>
 </button>
-<button on:click={handleZoomOut} on:keydown={handleZoomOut} class="">
+<button
+  on:click={handleZoomOut}
+  on:keydown={handleZoomOut}
+  class=""
+  aria-label="Zoom out"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
     class="h-5 fill-current opacity-70 hover:opacity-100"
   >
+    <title>Zoom out</title>
     <use xlink:href="/zoomOut.svg#zoomOut" />
   </svg>
 </button>

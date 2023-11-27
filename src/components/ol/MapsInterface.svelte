@@ -10,7 +10,7 @@
   export let mapsInfo;
 
   let interfaceOffset = 0;
-  let cogsList = mapsInfo;
+  // let mapsInfo = mapsInfo;
 
   const toggleInterface = () => {
     if (interfaceOffset == 0) {
@@ -21,10 +21,10 @@
   };
 
   const { swipeCutThreshold, layerSwipeStatus } = getMapContext();
-  $swipeCutThreshold = cogsList.length;
+  $swipeCutThreshold = mapsInfo.length;
 
   const sortList = (ev: Event) => {
-    cogsList = ev.detail;
+    mapsInfo = ev.detail;
   };
 </script>
 
@@ -34,7 +34,11 @@
   style="--offset:{-800 * (1 - interfaceOffset) + 'px'}"
   class="absolute top-52 left-[var(--offset)] sm:top-40 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
-  <button on:click={toggleInterface} on:keydown={toggleInterface}>
+  <button
+    on:click={toggleInterface}
+    on:keydown={toggleInterface}
+    aria-label="Show interface"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
@@ -54,12 +58,12 @@
       <button
         on:click={toggleInterface}
         on:keydown={toggleInterface}
-        class="opacity-70 hover:opacity-100"
+        aria-label="Hide interface"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
-          class="h-10 fill-current"
+          class="h-10 fill-current opacity-70 hover:opacity-100"
         >
           <use xlink:href="/xmark.svg#xmark" />
         </svg>
@@ -112,12 +116,12 @@
     </fieldset>
   </div>
   <SortableList
-    list={cogsList}
+    list={mapsInfo}
     key="cogurl"
     on:sort={sortList}
     let:item
     let:index
   >
-    <SortableMapItem {item} mapZIndex={cogsList.length - index} />
+    <SortableMapItem {item} mapZIndex={mapsInfo.length - index} />
   </SortableList>
 </div>

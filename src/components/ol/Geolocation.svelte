@@ -95,12 +95,18 @@
   });
 </script>
 
-<button on:click={handleGeoLocate} on:keydown={handleGeoLocate} class="mr-3">
+<button
+  on:click={handleGeoLocate}
+  on:keydown={handleGeoLocate}
+  class="mr-3"
+  aria-label="Geolocate me"
+>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
     class="h-4 fill-current opacity-70 hover:opacity-100"
   >
+    <title>Geolocate me</title>
     <use xlink:href="/location.svg#location" />
   </svg>
 </button>
