@@ -48,11 +48,9 @@
   });
 
   geolocation.on("change:tracking", async () => {
-    console.log("ol says: " + geolocation.getTracking());
     const navStatus = await navigator.permissions.query({
       name: "geolocation",
     });
-    console.log("navigator says: " + JSON.stringify(navStatus));
     $mapInstance
       ?.getView()
       .animate({ center: geolocation.getPosition(), duration: 300 });
@@ -73,11 +71,9 @@
 
   const handleGeoLocate = async () => {
     if (!geolocation.getTracking()) {
-      console.log("ol says: " + geolocation.getTracking());
       const navStatus = await navigator.permissions.query({
         name: "geolocation",
       });
-      console.log("navigator says: " + JSON.stringify(navStatus));
       geolocation.setTracking(true);
     } else {
       $mapInstance
