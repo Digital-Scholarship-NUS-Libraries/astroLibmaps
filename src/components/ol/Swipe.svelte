@@ -24,14 +24,12 @@
     <divider
       style="--offset:{$layerSwipeValue.y * window.innerHeight - 4 + 'px'};"
       class="absolute top-[var(--offset)] block w-full h-2 backdrop-blur-md bg-base-100/50"
-      >aaa
-    </divider>
+    />
   {:else}
     <divider
       style="--offset:{$layerSwipeValue.x * window.innerWidth - 4 + 'px'};"
       class="absolute top-0 left-[var(--offset)] block h-full w-2 backdrop-blur-md bg-base-100/50"
-      >bbb
-    </divider>
+    />
   {/if}
   <swipeContainer
     class="absolute top-0 h-full w-full pointer-events-none grid place-items-center"
