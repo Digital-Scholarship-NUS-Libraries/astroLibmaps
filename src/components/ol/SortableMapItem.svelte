@@ -17,6 +17,14 @@
   const zoomToLayer = () => {
     $mapInstance?.getView().fit(item.extent, { duration: 300 });
   };
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-8X7NLQ7Q24");
 </script>
 
 <span
@@ -30,7 +38,7 @@
       name="visibility"
       bind:checked={visible}
       on:change|once={() => {
-        window.dataLayer.push("event", "map_toggle_visibility", {
+        gtag("event", "map_toggle_visibility", {
           event_category: "maps",
           event_label: item.shortname,
         });
