@@ -29,6 +29,12 @@
       id="visibility{mapZIndex}"
       name="visibility"
       bind:checked={visible}
+      on:change|once={() => {
+        window.dataLayer.push("event", "map_toggle_visibility", {
+          event_category: "maps",
+          event_label: item.shortname,
+        });
+      }}
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"

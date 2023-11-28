@@ -30,26 +30,28 @@
     zIndex,
   });
 
-  let gtag;
-
-  onMount(() => {
-    window.dataLayer = window.dataLayer || [];
-    gtag = () => {
-      dataLayer.push(arguments);
-    };
-    gtag("js", new Date());
-
-    gtag("config", "G-8X7NLQ7Q24");
-  });
+  // let gtag;
+  //
+  // onMount(() => {
+  //   window.dataLayer = window.dataLayer || [];
+  //   gtag = () => {
+  //     dataLayer.push(arguments);
+  //   };
+  //   gtag("js", new Date());
+  //
+  //   gtag("config", "G-8X7NLQ7Q24");
+  // });
 
   $: cogLayer.setZIndex(zIndex);
   $: {
     cogLayer.setVisible(visible);
     $mapInstance.render();
-    if (gtag && visible) {
-      console.log(gtag);
-      gtag("event", "map_toggle_visibility", { category: "maps", label: url });
-    }
+    // if (gtag && visible) {
+    //   gtag("event", "map_toggle_visibility", {
+    //     event_category: "maps",
+    //     event_label: url,
+    //   });
+    // }
   }
   $: cogLayer.setOpacity(opacity);
 
