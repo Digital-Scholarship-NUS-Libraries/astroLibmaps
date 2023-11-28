@@ -47,7 +47,8 @@
     cogLayer.setVisible(visible);
     $mapInstance.render();
     if (gtag && visible) {
-      gtag("event", "map_toggle_visibility", { url });
+      console.log(gtag);
+      gtag("event", "map_toggle_visibility", { category: "maps", label: url });
     }
   }
   $: cogLayer.setOpacity(opacity);
