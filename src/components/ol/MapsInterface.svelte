@@ -19,8 +19,7 @@
     }
   };
 
-  const { swipeCutThreshold, layerSwipeStatus } = getMapContext();
-  // $swipeCutThreshold = mapsInfo.length;
+  const { layerSwipeStatus, isFullscreen } = getMapContext();
 
   const sortList = (ev: Event) => {
     mapsInfo = ev.detail;
@@ -28,6 +27,16 @@
 </script>
 
 <Swipe />
+{#if $isFullscreen}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="absolute top-4 right-4 h-8 lg:h-12"
+    viewBox="0 0 225.591 60"
+  >
+    <title>NUS Libraries</title>
+    <use xlink:href="/NUSLlogo.svg#nusllogo" />
+  </svg>
+{/if}
 <div
   id="interfaceButton"
   style="--offset:{-800 * (1 - interfaceOffset) + 'px'}"
@@ -77,7 +86,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-5 ml-1 mr-4 fill-current"
+      class="h-5 ml-1 mr-4 fill-current transition-all"
       class:opacity-40={$layerSwipeStatus == "none"}
       class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
     >

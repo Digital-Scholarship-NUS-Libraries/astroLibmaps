@@ -70,7 +70,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 ml-1 mr-4 fill-current"
+      class="h-4 ml-1 mr-4 fill-current transition-all"
       class:opacity-40={mapZIndex < $swipeCutThreshold ||
         $layerSwipeStatus == "none"}
       class:opacity-100={mapZIndex >= $swipeCutThreshold &&

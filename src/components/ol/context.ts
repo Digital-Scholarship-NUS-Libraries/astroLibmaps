@@ -8,17 +8,19 @@ export interface MapContext {
   swipeCutThreshold: Writable<number>;
   layerSwipeStatus: Writable<string>;
   layerSwipeValue: Writable<{ x: number; y: number }>;
+  isFullscreen: Writable<boolean>;
 }
 
 const MAP_CONTEXT_KEY = Symbol.for("olmapcontext");
 
 export function createMapContext(): MapContext {
   return setContext(MAP_CONTEXT_KEY, {
-    map: writable<Map | null>(null),
-    renderComplete: writable<boolean>(false),
-    swipeCutThreshold: writable<number>(1),
-    layerSwipeStatus: writable<string>("none"),
-    layerSwipeValue: writable<{ x: number; y: number }>({ x: 0.5, y: 0.5 }),
+    map: writable(null),
+    renderComplete: writable(false),
+    swipeCutThreshold: writable(1),
+    layerSwipeStatus: writable("none"),
+    layerSwipeValue: writable({ x: 0.5, y: 0.5 }),
+    isFullscreen: writable(false),
   });
 }
 

@@ -1,12 +1,10 @@
 <script lang="ts">
   import { getMapContext } from "./context";
 
-  const { map: mapInstance } = getMapContext();
-
-  let fullscreen = false;
+  const { map: mapInstance, isFullscreen } = getMapContext();
 
   const toggleFullscreen = () => {
-    if (fullscreen) {
+    if ($isFullscreen) {
       const element = $mapInstance?.getTargetElement();
       if (element) {
         if (element.requestFullscreen) {
@@ -30,7 +28,7 @@
     type="checkbox"
     id="fullscreen"
     name="fullscreen"
-    bind:checked={fullscreen}
+    bind:checked={$isFullscreen}
     on:change={toggleFullscreen}
   />
   <svg
@@ -38,7 +36,7 @@
     height="1em"
     viewBox="0 0 640 512"
     class="h-4 swap-off fill-current !opacity-70 hover:!opacity-100"
-    class:scale-0={fullscreen}
+    class:scale-0={$isFullscreen}
   >
     <title>Toggle fullscreen</title>
     <use xlink:href="/maximize.svg#maximize" />
@@ -48,7 +46,7 @@
     height="1em"
     viewBox="0 0 576 512"
     class="h-4 swap-on fill-current !opacity-70 hover:!opacity-100"
-    class:scale-0={!fullscreen}
+    class:scale-0={!$isFullscreen}
   >
     <title>Toggle fullscreen</title>
     <use xlink:href="/minimize.svg#minimize" />
