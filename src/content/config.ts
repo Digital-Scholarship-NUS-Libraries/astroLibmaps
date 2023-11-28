@@ -3,7 +3,7 @@ const mapCollection = defineCollection({
   type: "content",
   schema: z.object({
     cogurl: z.string().url(),
-    TMSurl: z.string().url(),
+    WMTSurl: z.string().url(),
     legacyTMSurl: z.string().url().optional(),
     title: z.string(),
     shortname: z.union([z.string(), z.number()]),

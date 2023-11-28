@@ -27,13 +27,13 @@ entry.data.gcp &&
     <a href=`${entry.data.gcp}` download>Download here</a>
 }
     <h2>Web Services</h2>
-    <p>Use the following address to integrate this map in your GIS software:</p>
-    <code>{entry.data.TMSurl}</code>
+    <p>Use the following address to integrate this map in your GIS software through WMTS:</p>
+    <code>{entry.data.WMTSurl}</code>
     {
       entry.data.legacyTMSurl && (
         <>
           <p>
-            If your software doesn't support the webp image format yet, you can
+            If your software doesn't support the service provided above, you can
             use our legacy service at this address:
           </p>
           <code>{entry.data.legacyTMSurl}</code>
