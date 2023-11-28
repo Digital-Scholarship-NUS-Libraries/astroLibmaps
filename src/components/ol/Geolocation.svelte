@@ -61,9 +61,10 @@
     .then((permissionStatus) => {
       permissionStatus.onchange = () => {
         if (permissionStatus.state == "granted") {
-          $mapInstance?.getView.animate({
+          $mapInstance?.getView().animate({
             center: geolocation.getPosition(),
             duration: 300,
+            zoom: 16,
           });
         }
       };
@@ -78,7 +79,11 @@
     } else {
       $mapInstance
         ?.getView()
-        .animate({ center: geolocation.getPosition(), duration: 300 });
+        .animate({
+          center: geolocation.getPosition(),
+          duration: 300,
+          zoom: 16,
+        });
     }
   };
 
