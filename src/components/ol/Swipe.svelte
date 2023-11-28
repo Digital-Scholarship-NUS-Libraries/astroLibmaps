@@ -17,17 +17,27 @@
       $layerSwipeValue = startSwipeValue;
     }
   });
+
+  let innerWidth = window.innerWidth;
+  let innerHeight = window.innerHeight;
+
+  const observer = new ResizeObserver((_) => {
+    innerWidth = window.innerWidth;
+    innerHeight = window.innerHeight;
+  });
+
+  observer.observe(document.body);
 </script>
 
 {#if $layerSwipeStatus != "none"}
   {#if $layerSwipeStatus === "horizontal"}
     <divider
-      style="--offset:{$layerSwipeValue.y * window.innerHeight - 4 + 'px'};"
+      style="--offset:{$layerSwipeValue.y * innerHeight - 4 + 'px'};"
       class="absolute top-[var(--offset)] block w-full h-2 backdrop-blur-md bg-base-100/50"
     />
   {:else}
     <divider
-      style="--offset:{$layerSwipeValue.x * window.innerWidth - 4 + 'px'};"
+      style="--offset:{$layerSwipeValue.x * innerWidth - 4 + 'px'};"
       class="absolute top-0 left-[var(--offset)] block h-full w-2 backdrop-blur-md bg-base-100/50"
     />
   {/if}
