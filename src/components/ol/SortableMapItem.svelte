@@ -38,9 +38,8 @@
       name="visibility"
       bind:checked={visible}
       on:change|once={() => {
-        gtag("event", "map_toggle_visibility", {
-          event_category: "maps",
-          map_name: item.shortname,
+        gtag("event", item.shortname, {
+          event_category: "map_toggle_visibility",
         });
       }}
     />
