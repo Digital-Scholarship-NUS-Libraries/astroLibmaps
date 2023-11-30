@@ -3,7 +3,7 @@
   import GeoTIFF from "ol/source/GeoTIFF";
   import { getRenderPixel } from "ol/render.js";
   import { getMapContext } from "./context";
-  import { onDestroy, onMount } from "svelte";
+  import { onDestroy } from "svelte";
   export let url: string;
   export let zIndex: number = 0;
   export let visible: boolean;
@@ -30,28 +30,10 @@
     zIndex,
   });
 
-  // let gtag;
-  //
-  // onMount(() => {
-  //   window.dataLayer = window.dataLayer || [];
-  //   gtag = () => {
-  //     dataLayer.push(arguments);
-  //   };
-  //   gtag("js", new Date());
-  //
-  //   gtag("config", "G-8X7NLQ7Q24");
-  // });
-
   $: cogLayer.setZIndex(zIndex);
   $: {
     cogLayer.setVisible(visible);
     $mapInstance.render();
-    // if (gtag && visible) {
-    //   gtag("event", "map_toggle_visibility", {
-    //     event_category: "maps",
-    //     event_label: url,
-    //   });
-    // }
   }
   $: cogLayer.setOpacity(opacity);
 

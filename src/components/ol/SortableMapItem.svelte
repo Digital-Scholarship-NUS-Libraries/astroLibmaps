@@ -40,7 +40,7 @@
       on:change|once={() => {
         gtag("event", "map_toggle_visibility", {
           event_category: "maps",
-          event_label: item.shortname,
+          map_name: item.shortname,
         });
       }}
     />
