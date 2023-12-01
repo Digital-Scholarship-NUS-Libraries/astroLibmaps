@@ -8,6 +8,7 @@
   let load = false;
   let visible = false;
   let opacity = 1;
+  let loading = false;
 
   const {
     map: mapInstance,
@@ -124,7 +125,11 @@
   </a>
 </span>
 {#if visible}
-  <transparencyslider class="ml-7" transition:slide>
+  <span class="flex" transition:slide>
+    <span
+      class="loading loading-spinner loading-sm mr-1 transition-opacity"
+      class:opacity-0={!loading}
+    />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
@@ -148,8 +153,14 @@
       draggable="true"
       on:dragstart|preventDefault|stopPropagation
     />
-  </transparencyslider>
+  </span>
 {/if}
 {#if load}
-  <CogLayer url={item.cogurl} zIndex={mapZIndex} {visible} {opacity} />
+  <CogLayer
+    url={item.cogurl}
+    zIndex={mapZIndex}
+    {visible}
+    {opacity}
+    bind:loading
+  />
 {/if}

@@ -8,6 +8,7 @@
   export let zIndex: number = 0;
   export let visible: boolean;
   export let opacity = 1;
+  export let loading = false;
 
   const {
     map: mapInstance,
@@ -23,6 +24,22 @@
         url: url,
       },
     ],
+  });
+
+  let tileLoadCount = 0;
+  $: if (tileLoadCount == 0) {
+    loading = false;
+  } else {
+    loading = true;
+  }
+
+  cogSource.on("tileloadstart", () => {
+    tileLoadCount++;
+  });
+  cogSource.on("tileloadend", () => {
+    tileLoadCount--;
+    if (tileLoadCount == 0) {
+    }
   });
   const cogLayer = new WebGLTile({
     source: cogSource,
