@@ -35,6 +35,7 @@
         minZoom,
         maxZoom,
         extent: [103.130035, 0.822573, 104.801331, 1.724593],
+        enableRotation: false,
       }),
       controls: [attribution],
     });
