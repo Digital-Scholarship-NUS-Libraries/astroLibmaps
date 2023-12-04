@@ -22,22 +22,21 @@ if(entry.data.scale){
     <p>{entry.data.year}</p>
     <Content />
 {
-entry.data.gcp &&
+entry.data.gcp && (
     <h2>Ground Control Points</h2>
     <a href=`${entry.data.gcp}` download>Download here</a>
+)
 }
     <h2>Web Services</h2>
     <p>Use the following address to integrate this map in your GIS software through WMTS:</p>
-    <code>{entry.data.WMTSurl}</code>
+    <code class="break-all">{entry.data.WMTSurl}</code>
     {
       entry.data.legacyTMSurl && (
-        <>
           <p>
             If your software doesn't support the service provided above, you can
             use our legacy service at this address:
           </p>
-          <code>{entry.data.legacyTMSurl}</code>
-        </>
+          <code class="break-all">{entry.data.legacyTMSurl}</code>
       )
     }
   </Fragment>
