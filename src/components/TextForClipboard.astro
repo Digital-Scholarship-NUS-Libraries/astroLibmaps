@@ -1,0 +1,25 @@
+---
+const { text } = Astro.props;
+---
+
+<text-for-clipboard class="join w-full border border-base-300" data-text={text}>
+  <code class="join-item grow place-self-center break-all">{text}</code>
+  <button class="join-item btn h-auto" data-tip="copied!">copy</button>
+</text-for-clipboard>
+
+<script>
+  class TextForClipboard extends HTMLElement {
+    constructor() {
+      super();
+      const text = this.dataset.text as string;
+      const button = this.querySelector("button");
+      button?.addEventListener("click", () => {
+        navigator.clipboard.writeText(text).then(() => {
+          button.classList.add("tooltip");
+          setTimeout(() => button.classList.remove("tooltip"), 3000);
+        });
+      });
+    }
+  }
+  customElements.define("text-for-clipboard", TextForClipboard);
+</script>

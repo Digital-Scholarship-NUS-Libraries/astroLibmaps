@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import TextForClipboard from "../../components/TextForClipboard.astro";
 export async function getStaticPaths() {
   const maps = await getCollection("maps");
   return maps.map((entry) => ({
@@ -21,22 +22,22 @@ if(entry.data.scale){
     <h2>Year of Publication</h2>
     <p>{entry.data.year}</p>
     <Content />
-{
-entry.data.gcp && (
-    <h2>Ground Control Points</h2>
-    <a href=`${entry.data.gcp}` download>Download here</a>
-)
-}
+    {
+      entry.data.gcp && (
+        <h2>Ground Control Points</h2>
+        <a href=`${entry.data.gcp}` download>Download here</a>
+      )
+    }
     <h2>Web Services</h2>
     <p>Use the following address to integrate this map in your GIS software through WMTS:</p>
-    <code class="break-all">{entry.data.WMTSurl}</code>
+    <TextForClipboard text={entry.data.WMTSurl}/>
     {
       entry.data.legacyTMSurl && (
-          <p>
+        <p>
             If your software doesn't support the service provided above, you can
             use our legacy service at this address:
-          </p>
-          <code class="break-all">{entry.data.legacyTMSurl}</code>
+        </p>
+        <TextForClipboard text={entry.data.legacyTMSurl} />
       )
     }
   </Fragment>
