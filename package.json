@@ -14,15 +14,15 @@
     "@astrojs/svelte": "^4.0.4",
     "@astrojs/tailwind": "^5.0.2",
     "@neodrag/svelte": "^2.0.3",
-    "astro": "^3.5.5",
+    "astro": "^3.6.4",
     "ol": "^8.2.0",
-    "svelte": "^4.2.7",
+    "svelte": "^4.2.8",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.3.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
-    "daisyui": "^4.4.2",
+    "daisyui": "^4.4.18",
     "prettier": "^3.1.0",
     "prettier-plugin-astro": "^0.12.2"
   }
