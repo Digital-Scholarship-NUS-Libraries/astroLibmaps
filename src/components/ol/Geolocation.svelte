@@ -77,13 +77,11 @@
       });
       geolocation.setTracking(true);
     } else {
-      $mapInstance
-        ?.getView()
-        .animate({
-          center: geolocation.getPosition(),
-          duration: 300,
-          zoom: 16,
-        });
+      $mapInstance?.getView().animate({
+        center: geolocation.getPosition(),
+        duration: 300,
+        zoom: 16,
+      });
     }
   };
 
@@ -105,7 +103,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-4 fill-current opacity-70 hover:opacity-100"
+    class="h-6 fill-current opacity-70 hover:opacity-100"
   >
     <title>Geolocate me</title>
     <use xlink:href="/location.svg#location" />

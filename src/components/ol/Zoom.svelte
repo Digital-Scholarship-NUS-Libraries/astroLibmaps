@@ -40,7 +40,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-5 fill-current opacity-70 hover:opacity-100"
+    class="h-8 fill-current opacity-70 hover:opacity-100"
   >
     <title>Zoom in</title>
     <use xlink:href="/zoomIn.svg#zoomIn" />
@@ -55,7 +55,7 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
-    class="h-5 fill-current opacity-70 hover:opacity-100"
+    class="h-8 fill-current opacity-70 hover:opacity-100"
   >
     <title>Zoom out</title>
     <use xlink:href="/zoomOut.svg#zoomOut" />
