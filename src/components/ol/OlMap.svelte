@@ -20,7 +20,8 @@
     map: mapInstance,
     renderComplete,
     swipeCutThreshold,
-    layerSwipeStatus,
+    layerSwipeActive,
+    layerSwipeDirection,
   } = createMapContext();
 
   onMount(() => {
@@ -44,8 +45,9 @@
       $renderComplete = true;
     });
 
-    swipeCutThreshold.subscribe(() => $mapInstance.render());
-    layerSwipeStatus.subscribe(() => $mapInstance.render());
+    swipeCutThreshold.subscribe(() => $mapInstance?.render());
+    layerSwipeActive.subscribe(() => $mapInstance?.render());
+    layerSwipeDirection.subscribe(() => $mapInstance?.render());
   });
 </script>
 

@@ -5,15 +5,16 @@
 
   const {
     map: mapInstance,
-    layerSwipeStatus,
+    layerSwipeActive,
+    layerSwipeDirection,
     layerSwipeValue,
   } = getMapContext();
 
   let position = { x: 0, y: 0 };
   const startSwipeValue = $layerSwipeValue;
 
-  layerSwipeStatus.subscribe((v) => {
-    if (v === "none") {
+  layerSwipeActive.subscribe((v) => {
+    if (v === false) {
       $layerSwipeValue = startSwipeValue;
     }
   });
@@ -22,6 +23,7 @@
   let innerHeight = window.innerHeight;
 
   const observer = new ResizeObserver((_) => {
+    console.log("resized");
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
@@ -29,8 +31,8 @@
   observer.observe(document.body);
 </script>
 
-{#if $layerSwipeStatus != "none"}
-  {#if $layerSwipeStatus === "horizontal"}
+{#if $layerSwipeActive}
+  {#if $layerSwipeDirection === "horizontal"}
     <divider
       style="--offset:{$layerSwipeValue.y * innerHeight - 4 + 'px'};"
       class="absolute top-[var(--offset)] block w-full h-2 backdrop-blur-md bg-base-100/50"
@@ -46,11 +48,11 @@
   >
     <swipe
       class="w-12 h-12 rounded-lg grid place-items-center [pointer-events:initial] backdrop-blur-md bg-base-100/50 hover:bg-base-100/70"
-      use:draggable={$layerSwipeStatus == "vertical"
+      use:draggable={$layerSwipeDirection == "vertical"
         ? { axis: "x" }
         : { axis: "y" }}
-      class:cursor-ns-resize={$layerSwipeStatus == "horizontal"}
-      class:cursor-ew-resize={$layerSwipeStatus != "horizontal"}
+      class:cursor-ns-resize={$layerSwipeDirection == "horizontal"}
+      class:cursor-ew-resize={$layerSwipeDirection != "horizontal"}
       on:neodrag={(e) => {
         position = { x: e.detail.offsetX, y: e.detail.offsetY };
         $layerSwipeValue = {
@@ -61,7 +63,7 @@
       }}
       transition:fade={{ duration: 250 }}
     >
-      {#if $layerSwipeStatus === "horizontal"}
+      {#if $layerSwipeDirection === "horizontal"}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           height="1em"

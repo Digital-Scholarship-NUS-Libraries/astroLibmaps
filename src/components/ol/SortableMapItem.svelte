@@ -12,7 +12,8 @@
 
   const {
     map: mapInstance,
-    layerSwipeStatus,
+    layerSwipeActive,
+    layerSwipeDirection,
     swipeCutThreshold,
   } = getMapContext();
   const zoomToLayer = () => {
@@ -68,7 +69,7 @@
   <input
     type="radio"
     class="hidden"
-    disabled={$layerSwipeStatus === "none"}
+    disabled={!$layerSwipeActive}
     id="swipeValue{mapZIndex}"
     title="Cut this layer with the layer swipe"
     name="swipeCutThreshold"
@@ -85,14 +86,10 @@
       height="1em"
       viewBox="0 0 512 512"
       class="h-4 ml-1 mr-4 fill-current transition-all"
-      class:opacity-40={mapZIndex < $swipeCutThreshold ||
-        $layerSwipeStatus == "none"}
-      class:opacity-100={mapZIndex >= $swipeCutThreshold &&
-        ["vertical", "horizontal"].includes($layerSwipeStatus)}
-      class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
-      class:cursor-pointer={["vertical", "horizontal"].includes(
-        $layerSwipeStatus
-      )}
+      class:opacity-40={mapZIndex < $swipeCutThreshold || !$layerSwipeActive}
+      class:opacity-100={mapZIndex >= $swipeCutThreshold && $layerSwipeActive}
+      class:rotate-90={$layerSwipeDirection == "vertical"}
+      class:cursor-pointer={$layerSwipeActive}
     >
       <use xlink:href="/scissor.svg#scissor" />
     </svg>

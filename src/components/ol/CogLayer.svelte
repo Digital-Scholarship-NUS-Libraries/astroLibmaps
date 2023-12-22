@@ -14,7 +14,8 @@
     map: mapInstance,
     renderComplete,
     swipeCutThreshold,
-    layerSwipeStatus,
+    layerSwipeActive,
+    layerSwipeDirection,
     layerSwipeValue,
   } = getMapContext();
 
@@ -50,26 +51,26 @@
   $: cogLayer.setZIndex(zIndex);
   $: {
     cogLayer.setVisible(visible);
-    $mapInstance.render();
+    $mapInstance?.render();
   }
   $: cogLayer.setOpacity(opacity);
 
   cogLayer.on("prerender", function (event) {
-    const gl = event.context;
+    const gl = event.context as WebGLRenderingContext;
     if ($renderComplete) {
       $renderComplete = false;
       gl.clearColor(0, 0, 0, 0);
       gl.clear(gl.COLOR_BUFFER_BIT);
     }
-    if (zIndex >= $swipeCutThreshold && $layerSwipeStatus != "none") {
+    if (zIndex >= $swipeCutThreshold && $layerSwipeActive) {
       gl.enable(gl.SCISSOR_TEST);
 
-      const mapSize = $mapInstance.getSize();
+      const mapSize = $mapInstance?.getSize() as number[];
 
       const bottomLeft = getRenderPixel(event, [0, mapSize[1]]);
       const topRight = getRenderPixel(event, [mapSize[0], 0]);
 
-      if ($layerSwipeStatus == "vertical") {
+      if ($layerSwipeDirection == "vertical") {
         const width = Math.round(
           (topRight[0] - bottomLeft[0]) * $layerSwipeValue.x
         );
@@ -88,8 +89,8 @@
   });
 
   cogLayer.on("postrender", function (event) {
-    if (zIndex >= $swipeCutThreshold && $layerSwipeStatus != "none") {
-      const gl = event.context;
+    if (zIndex >= $swipeCutThreshold && $layerSwipeActive) {
+      const gl = event.context as WebGLRenderingContext;
       gl.disable(gl.SCISSOR_TEST);
     }
   });

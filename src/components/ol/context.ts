@@ -6,7 +6,8 @@ export interface MapContext {
   map: Writable<Map | null>;
   renderComplete: Writable<boolean>;
   swipeCutThreshold: Writable<number>;
-  layerSwipeStatus: Writable<string>;
+  layerSwipeActive: Writable<boolean>;
+  layerSwipeDirection: "horizontal" | "vertical";
   layerSwipeValue: Writable<{ x: number; y: number }>;
   isFullscreen: Writable<boolean>;
 }
@@ -18,7 +19,8 @@ export function createMapContext(): MapContext {
     map: writable(null),
     renderComplete: writable(false),
     swipeCutThreshold: writable(1),
-    layerSwipeStatus: writable("none"),
+    layerSwipeActive: writable(false),
+    layerSwipeDirection: writable("horizontal"),
     layerSwipeValue: writable({ x: 0.5, y: 0.5 }),
     isFullscreen: writable(false),
   });

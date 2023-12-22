@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { slide } from "svelte/transition";
   import SortableList from "./SortableList.svelte";
   import SortableMapItem from "./SortableMapItem.svelte";
   import Zoom from "./Zoom.svelte";
@@ -6,8 +7,9 @@
   import Fullscreen from "./Fullscreen.svelte";
   import Swipe from "./Swipe.svelte";
   import { getMapContext } from "./context";
+  import type { cog } from "./types.ts";
 
-  export let mapsInfo;
+  export let mapsInfo: cog[];
 
   let interfaceOffset = 0;
 
@@ -19,9 +21,10 @@
     }
   };
 
-  const { layerSwipeStatus, isFullscreen } = getMapContext();
+  const { layerSwipeActive, layerSwipeDirection, isFullscreen } =
+    getMapContext();
 
-  const sortList = (ev: Event) => {
+  const sortList = (ev: CustomEvent) => {
     mapsInfo = ev.detail;
   };
 </script>
@@ -40,7 +43,7 @@
 <div
   id="interfaceButton"
   style="--offset:{-800 * (1 - interfaceOffset) + 'px'}"
-  class="absolute top-52 left-[var(--offset)] sm:top-40 md:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="absolute top-52 left-[var(--offset)] sm:top-40 lg:top-4 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <button
     on:click={toggleInterface}
@@ -59,7 +62,7 @@
 <div
   id="interface"
   style="--offset:{-800 * interfaceOffset + 'px'};"
-  class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] md:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 left-[var(--offset)] sm:top-36 md:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="max-h-[calc(100vh-14rem)] sm:max-h-[calc(100vh-11rem)] lg:max-h-[calc(100vh-2rem)] overflow-scroll p-4 my-4 absolute top-48 left-[var(--offset)] sm:top-36 lg:top-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <div class="flex items-center pr-6">
     <span class="grow">
@@ -94,49 +97,61 @@
     <Geolocation />
     <Fullscreen />
     <Zoom />
+    <label class="swap ml-4">
+      <input
+        type="checkbox"
+        id="layerswipe"
+        name="layerswipe"
+        bind:checked={$layerSwipeActive}
+      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 640 512"
+        class="h-5 swap-off fill-current !opacity-40"
+        class:scale-0={$layerSwipeActive}
+        class:rotate-90={$layerSwipeDirection == "vertical"}
+      >
+        <title>Toggle visibility</title>
+        <use xlink:href="/scissor.svg#scissor" />
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 576 512"
+        class="h-5 swap-on fill-current"
+        class:rotate-90={$layerSwipeDirection == "vertical"}
+      >
+        <title>Toggle visibility</title>
+        <use xlink:href="/scissor.svg#scissor" />
+      </svg>
+    </label>
   </div>
-  <div class="mt-4 flex items-center">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 512 512"
-      class="h-5 ml-1 mr-4 fill-current transition-all"
-      class:opacity-40={$layerSwipeStatus == "none"}
-      class:rotate-90={["vertical", "none"].includes($layerSwipeStatus)}
-    >
-      <use xlink:href="/scissor.svg#scissor" />
-    </svg>
-    <fieldset class="join">
-      <input
-        type="radio"
-        id="none"
-        name="layerswipe"
-        value="none"
-        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
-        aria-label="None"
-        checked
-        bind:group={$layerSwipeStatus}
-      />
-      <input
-        type="radio"
-        id="vertical"
-        name="layerswipe"
-        value="vertical"
-        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
-        aria-label="Vertical"
-        bind:group={$layerSwipeStatus}
-      />
-      <input
-        type="radio"
-        id="horizontal"
-        name="layerswipe"
-        value="horizontal"
-        class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
-        aria-label="Horizontal"
-        bind:group={$layerSwipeStatus}
-      />
-    </fieldset>
-  </div>
+  {#if $layerSwipeActive}
+    <div class="h-12 mt-2 pr-6 flex items-center" transition:slide>
+      <div class="grow" />
+      <fieldset class="join">
+        <input
+          type="radio"
+          id="vertical"
+          name="layerswipe"
+          value="vertical"
+          class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
+          aria-label="Vertical"
+          bind:group={$layerSwipeDirection}
+        />
+        <input
+          type="radio"
+          id="horizontal"
+          name="layerswipe"
+          value="horizontal"
+          class="join-item btn btn-ghost checked:!btn-ghost checked:!btn-active"
+          aria-label="Horizontal"
+          bind:group={$layerSwipeDirection}
+        />
+      </fieldset>
+    </div>
+  {/if}
   <SortableList
     list={mapsInfo}
     key="cogurl"
