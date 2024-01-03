@@ -1,7 +1,9 @@
 ---
 cogurl: https://d39hmjnw8fb16p.cloudfront.net/SG_Sentinel2_2023_cloudfreemosaic_COG.tif
 WMTSurl: https://libmaps.nus.edu.sg/services/SG_Sentinel2_2023_cloudfreemosaic_COG/wmts
-legacyTMSurl: https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/SG_Sentinel2_2023_cloudfreemosaic_COG/MapServer/tile/{z}/{y}/{x}
+pngWMTSurl: https://libmaps.nus.edu.sg/services/SG_Sentinel2_2023_cloudfreemosaic_COG/wmts/png
+legacyTMSurl: https://libmaps.nus.edu.sg/services/SG_Sentinel2_2023_cloudfreemosaic_COG/{z}/{y}/{x}
+pngLegacyTMSurl: https://libmaps.nus.edu.sg/services/png/SG_Sentinel2_2023_cloudfreemosaic_COG/{z}/{y}/{x}
 title: Cloudless Satellite Imagery
 shortname: 2023 Satellite
 year: 2023

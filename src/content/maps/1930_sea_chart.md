@@ -1,7 +1,9 @@
 ---
 cogurl: https://d39hmjnw8fb16p.cloudfront.net/1930_sea_chart.tif
 WMTSurl: https://libmaps.nus.edu.sg/services/1930/wmts
-legacyTMSurl: https://libmaps.nus.edu.sg/gis/rest/services/Sing_Hist_Maps/1930/MapServer/tile/{z}/{y}/{x}
+pngWMTSurl: https://libmaps.nus.edu.sg/services/1930/wmts/png
+legacyTMSurl: https://libmaps.nus.edu.sg/services/1930/{z}/{y}/{x}
+pngLegacyTMSurl: https://libmaps.nus.edu.sg/services/png/1930/{z}/{y}/{x}
 title: Singapore Strait Western Portion
 shortname: 1930 Sea Chart
 year: 1930
