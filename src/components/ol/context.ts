@@ -7,7 +7,7 @@ export interface MapContext {
   renderComplete: Writable<boolean>;
   swipeCutThreshold: Writable<number>;
   layerSwipeActive: Writable<boolean>;
-  layerSwipeDirection: "horizontal" | "vertical";
+  layerSwipeDirection: Writable<"horizontal" | "vertical">;
   layerSwipeValue: Writable<{ x: number; y: number }>;
   isFullscreen: Writable<boolean>;
 }
