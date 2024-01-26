@@ -23,7 +23,6 @@
   let innerHeight = window.innerHeight;
 
   const observer = new ResizeObserver((_) => {
-    console.log("resized");
     innerWidth = window.innerWidth;
     innerHeight = window.innerHeight;
   });
