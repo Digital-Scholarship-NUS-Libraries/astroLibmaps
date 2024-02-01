@@ -3,7 +3,9 @@ const { text } = Astro.props;
 ---
 
 <text-for-clipboard class="join w-full border border-base-300" data-text={text}>
-  <code class="join-item grow place-self-center break-all">{text}</code>
+  <code class="join-item grow place-self-center break-all bg-transparent"
+    >{text}</code
+  >
   <button class="join-item btn h-auto" data-tip="copied!">copy</button>
 </text-for-clipboard>
 
