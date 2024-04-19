@@ -39,8 +39,6 @@
   });
   cogSource.on("tileloadend", () => {
     tileLoadCount--;
-    if (tileLoadCount == 0) {
-    }
   });
   const cogLayer = new WebGLTile({
     source: cogSource,
@@ -72,14 +70,14 @@
 
       if ($layerSwipeDirection == "vertical") {
         const width = Math.round(
-          (topRight[0] - bottomLeft[0]) * $layerSwipeValue.x
+          (topRight[0] - bottomLeft[0]) * $layerSwipeValue.x,
         );
         const height = topRight[1] - bottomLeft[1];
 
         gl.scissor(bottomLeft[0], bottomLeft[1], width, height);
       } else {
         const height = Math.round(
-          (topRight[1] - bottomLeft[1]) * (1 - $layerSwipeValue.y)
+          (topRight[1] - bottomLeft[1]) * (1 - $layerSwipeValue.y),
         );
         const width = topRight[0] - bottomLeft[0];
 
