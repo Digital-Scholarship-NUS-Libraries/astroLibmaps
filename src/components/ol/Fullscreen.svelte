@@ -21,7 +21,13 @@
       }
     }
   };
+
+  const handleFullscreenChange = () => {
+    $isFullscreen = document.fullscreenElement != null;
+  };
 </script>
+
+<svelte:document on:fullscreenchange={handleFullscreenChange} />
 
 <label class="swap mr-[10px]">
   <input
