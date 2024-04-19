@@ -12,9 +12,9 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 let title = `${entry.data.year} - ${entry.data.title}`;
-if(entry.data.scale){
+if (entry.data.scale) {
   title += ` (${entry.data.scale})`;
-};
+}
 ---
 
 <Layout title={title}>
@@ -24,18 +24,25 @@ if(entry.data.scale){
     <Content />
     {
       entry.data.gcp && (
-        <h2>Ground Control Points</h2>
-        <a href=`${entry.data.gcp}` download>Download here</a>
+        <>
+          <h2>Ground Control Points</h2>
+          <a href={entry.data.gcp} download>
+            Download here
+          </a>
+        </>
       )
     }
     <h2>Web Services</h2>
-    <p>Use the following address to integrate this map in your GIS software through WMTS:</p>
-    <TextForClipboard text={entry.data.WMTSurl}/>
-    <p>For png images:</p>
-    <TextForClipboard text={entry.data.pngWMTSurl}/>
     <p>
-        If your software doesn't support the service provided above, you can
-        use our legacy TMS service at this address:
+      Use the following address to integrate this map in your GIS software
+      through WMTS:
+    </p>
+    <TextForClipboard text={entry.data.WMTSurl} />
+    <p>For png images:</p>
+    <TextForClipboard text={entry.data.pngWMTSurl} />
+    <p>
+      If your software doesn't support the service provided above, you can use
+      our legacy TMS service at this address:
     </p>
     <TextForClipboard text={entry.data.legacyTMSurl} />
     <p>For png images:</p>
