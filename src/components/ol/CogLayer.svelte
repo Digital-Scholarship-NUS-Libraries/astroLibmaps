@@ -27,8 +27,22 @@
     ],
   });
 
-  cogSource.on("tileloadstart", () => (loading = true));
-  cogSource.on("tileloadend", () => (loading = false));
+  let tileLoadCount = 0;
+  $: if (tileLoadCount == 0) {
+    loading = false;
+  } else {
+    loading = true;
+  }
+
+  cogSource.on("tileloadstart", () => {
+    tileLoadCount++;
+  });
+  cogSource.on("tileloadend", () => {
+    tileLoadCount--;
+  });
+  cogSource.on("tileloaderror", () => {
+    tileLoadCount--;
+  });
 
   const cogLayer = new WebGLTile({
     source: cogSource,
