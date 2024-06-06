@@ -1,7 +1,6 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
-  import SortableList from "./SortableList.svelte";
-  import SortableMapItem from "./SortableMapItem.svelte";
+  import MapItem from "./MapItem.svelte";
   import Zoom from "./Zoom.svelte";
   import Geolocation from "./Geolocation.svelte";
   import Fullscreen from "./Fullscreen.svelte";
@@ -48,7 +47,7 @@
   <button
     on:click={toggleInterface}
     on:keydown={toggleInterface}
-    aria-label="Show interface"
+    aria-label="Toggle interface"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -152,13 +151,19 @@
       </fieldset>
     </div>
   {/if}
-  <SortableList
-    list={mapsInfo}
-    key="cogurl"
-    on:sort={sortList}
-    let:item
-    let:index
-  >
-    <SortableMapItem {item} mapZIndex={mapsInfo.length - index} />
-  </SortableList>
+  <!-- <SortableList -->
+  <!--   list={mapsInfo} -->
+  <!--   key="cogurl" -->
+  <!--   on:sort={sortList} -->
+  <!--   let:item -->
+  <!--   let:index -->
+  <!-- > -->
+  <ul class="menu">
+    {#each mapsInfo as item, index}
+      <li>
+        <MapItem {item} mapZIndex={mapsInfo.length - index} />
+      </li>
+    {/each}
+  </ul>
+  <!-- </SortableList> -->
 </div>
