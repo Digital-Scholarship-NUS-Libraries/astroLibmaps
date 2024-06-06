@@ -65,7 +65,9 @@
       <use xlink:href="/eye.svg#eye" />
     </svg>
   </label>
-  <span class="grow">{item.shortname}</span>
+  <button class="grow text-left" on:click={() => (visible = !visible)}>
+    {item.shortname}
+  </button>
   <input
     type="radio"
     class="hidden"
