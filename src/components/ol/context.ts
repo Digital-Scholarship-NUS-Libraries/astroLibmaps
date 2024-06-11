@@ -4,7 +4,6 @@ import { writable, type Writable } from "svelte/store";
 
 export interface MapContext {
   map: Writable<Map | null>;
-  renderComplete: Writable<boolean>;
   layerSwipeActive: Writable<boolean>;
   layerSwipeDirection: Writable<"horizontal" | "vertical">;
   layerSwipeValue: Writable<{ x: number; y: number }>;
@@ -19,7 +18,6 @@ const MAP_CONTEXT_KEY = Symbol.for("olmapcontext");
 export function createMapContext(): MapContext {
   return setContext(MAP_CONTEXT_KEY, {
     map: writable(null),
-    renderComplete: writable(false),
     layerSwipeActive: writable(false),
     layerSwipeDirection: writable("vertical"),
     layerSwipeValue: writable({ x: 0.5, y: 0.5 }),

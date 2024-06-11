@@ -7,7 +7,6 @@
   import { onMount } from "svelte";
   import { createMapContext } from "./context";
 
-  // Exports
   export let lat: number;
   export let lon: number;
   export let zoom: number;
@@ -18,7 +17,6 @@
 
   const {
     map: mapInstance,
-    renderComplete,
     layerSwipeActive,
     layerSwipeDirection,
     layerSwipeValue,
@@ -49,10 +47,6 @@
     });
 
     observer.observe(document.body);
-
-    $mapInstance.on("rendercomplete", () => {
-      $renderComplete = true;
-    });
 
     layerSwipeActive.subscribe(() => $mapInstance?.render());
     layerSwipeDirection.subscribe(() => $mapInstance?.render());

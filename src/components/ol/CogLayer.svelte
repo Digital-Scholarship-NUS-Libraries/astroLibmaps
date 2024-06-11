@@ -1,7 +1,6 @@
 <script lang="ts">
   import WebGLTile from "ol/layer/WebGLTile";
   import GeoTIFF from "ol/source/GeoTIFF";
-  import { getRenderPixel } from "ol/render.js";
   import { getMapContext } from "./context";
   import { onDestroy } from "svelte";
   export let url: string;
@@ -13,7 +12,6 @@
 
   const {
     map: mapInstance,
-    renderComplete,
     layerSwipeActive,
     layerSwipeDirection,
     layerSwipeValue,
@@ -61,15 +59,6 @@
 
   cogLayer.on("prerender", function (event) {
     const gl = event.context as WebGLRenderingContext;
-    if ($renderComplete) {
-      $renderComplete = false;
-      // gl.disable(gl.SCISSOR_TEST);
-      // gl.scissor(0, 0, $mapWidth, $mapHeight);
-      // gl.clearColor(0, 0, 0, 0);
-      // gl.clear(gl.COLOR_BUFFER_BIT);
-      // console.log(`CLEAR ${zIndex}`);
-    }
-
     if (isSwipeLayer && $layerSwipeActive) {
       gl.clearColor(0, 0, 0, 0);
       gl.enable(gl.SCISSOR_TEST);
