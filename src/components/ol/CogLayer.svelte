@@ -9,14 +9,16 @@
   export let visible: boolean;
   export let opacity = 1;
   export let loading = false;
+  export let isSwipeLayer: "one" | "two" | undefined = undefined;
 
   const {
     map: mapInstance,
     renderComplete,
-    swipeCutThreshold,
     layerSwipeActive,
     layerSwipeDirection,
     layerSwipeValue,
+    mapWidth,
+    mapHeight,
   } = getMapContext();
 
   const cogSource = new GeoTIFF({
@@ -61,37 +63,43 @@
     const gl = event.context as WebGLRenderingContext;
     if ($renderComplete) {
       $renderComplete = false;
-      gl.clearColor(0, 0, 0, 0);
-      gl.clear(gl.COLOR_BUFFER_BIT);
+      // gl.disable(gl.SCISSOR_TEST);
+      // gl.scissor(0, 0, $mapWidth, $mapHeight);
+      // gl.clearColor(0, 0, 0, 0);
+      // gl.clear(gl.COLOR_BUFFER_BIT);
+      // console.log(`CLEAR ${zIndex}`);
     }
-    if (zIndex >= $swipeCutThreshold && $layerSwipeActive) {
+
+    if (isSwipeLayer && $layerSwipeActive) {
+      gl.clearColor(0, 0, 0, 0);
       gl.enable(gl.SCISSOR_TEST);
 
-      const mapSize = $mapInstance?.getSize() as number[];
-
-      const bottomLeft = getRenderPixel(event, [0, mapSize[1]]);
-      const topRight = getRenderPixel(event, [mapSize[0], 0]);
-
       if ($layerSwipeDirection == "vertical") {
-        const width = Math.round(
-          (topRight[0] - bottomLeft[0]) * $layerSwipeValue.x,
-        );
-        const height = topRight[1] - bottomLeft[1];
+        const swipeWidth = Math.round($mapWidth * $layerSwipeValue.x);
 
-        gl.scissor(bottomLeft[0], bottomLeft[1], width, height);
+        if (isSwipeLayer == "one") {
+          gl.scissor(0, 0, swipeWidth, $mapHeight);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+        } else {
+          gl.scissor(swipeWidth, 0, $mapWidth - swipeWidth, $mapHeight);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+        }
       } else {
-        const height = Math.round(
-          (topRight[1] - bottomLeft[1]) * (1 - $layerSwipeValue.y),
-        );
-        const width = topRight[0] - bottomLeft[0];
+        const swipeHeight = Math.round($mapHeight * (1 - $layerSwipeValue.y));
 
-        gl.scissor(bottomLeft[0], height, width, topRight[1]);
+        if (isSwipeLayer == "one") {
+          gl.scissor(0, swipeHeight, $mapWidth, $mapHeight - swipeHeight);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+        } else {
+          gl.scissor(0, 0, $mapWidth, swipeHeight);
+          gl.clear(gl.COLOR_BUFFER_BIT);
+        }
       }
     }
   });
 
   cogLayer.on("postrender", function (event) {
-    if (zIndex >= $swipeCutThreshold && $layerSwipeActive) {
+    if (isSwipeLayer && $layerSwipeActive) {
       const gl = event.context as WebGLRenderingContext;
       gl.disable(gl.SCISSOR_TEST);
     }

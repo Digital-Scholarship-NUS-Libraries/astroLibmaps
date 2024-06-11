@@ -68,48 +68,46 @@ const metaTitle = `${
   <body class="m-0">
     <Libmaps client:load mapsInfo={mapsInfo} transition:persist="maps" />
     <div
-      class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4 z-50"
+      class="absolute top-4 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-r-lg p-4 z-50"
     >
       <header class="grid grid-flow-row sm:grid-flow-col justify-end">
-        <a href="/" class="mr-4 mb-4 align-top">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-8 lg:h-12 fill-base-content"
-            viewBox="0 0 225.591 60"
-          >
-            <title>NUS Libraries</title>
-            <use xlink:href="/NUSLlogo.svg#nusllogo"></use>
-          </svg>
-        </a>
         <div>
           <h1 class="text-xl font-bold">Historical maps of Singapore</h1>
-          <h2 class="text-xs">
-            Digitised by Department of Geography, National University of
-            Singapore
-          </h2>
+          <h2 class="text-xs">Digitised by Department of Geography</h2>
+          <h2 class="text-xs">National University of Singapore</h2>
           <nav class="tabs tabs-bordered">
             <a
-              class="tab h-12 px-2 lg:px-4 text-base-content hover:text-base-content/50"
+              class="tab h-12 px-2 text-base-content hover:text-base-content/50"
               href="/">Home</a
             >
             <a
-              class="tab h-12 px-2 lg:px-4 text-base-content hover:text-base-content/50"
+              class="tab h-12 px-2 text-base-content hover:text-base-content/50"
               href="/about">About</a
             >
             <a
-              class="tab h-12 px-2 lg:px-4 text-base-content hover:text-base-content/50"
+              class="tab h-12 px-2 text-base-content hover:text-base-content/50"
               href="/maps">Metadata</a
             >
             <a
-              class="tab h-12 px-2 lg:px-4 text-base-content hover:text-base-content/50"
+              class="tab h-12 px-2 text-base-content hover:text-base-content/50"
               href="/termsOfUse">Terms Of Use</a
             >
           </nav>
         </div>
       </header>
-      <main class="prose">
-        {
-          Astro.url.pathname != "/" && (
+    </div>
+    {
+      Astro.url.pathname != "/" && (
+        <div class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4 z-50">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute top-4 right-4 h-8 lg:h-12"
+            viewBox="0 0 279 60"
+          >
+            <title>NUS Libraries</title>
+            <use xlink:href="/NUSLlogoL.svg#nusllogo" />
+          </svg>
+          <main class="prose mt-36">
             <div class="flex items-start">
               <a href="/" class="h-12 mt-4 mr-4">
                 <svg
@@ -124,10 +122,10 @@ const metaTitle = `${
               </a>
               <h1 class="mt-4">{title}</h1>
             </div>
-          )
-        }
-        <slot name="content" />
-      </main>
-    </div>
+            <slot name="content" />
+          </main>
+        </div>
+      )
+    }
   </body>
 </html>

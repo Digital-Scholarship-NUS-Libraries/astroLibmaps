@@ -19,9 +19,11 @@
   const {
     map: mapInstance,
     renderComplete,
-    swipeCutThreshold,
     layerSwipeActive,
     layerSwipeDirection,
+    layerSwipeValue,
+    mapWidth,
+    mapHeight,
   } = createMapContext();
 
   onMount(() => {
@@ -41,13 +43,20 @@
       controls: [attribution],
     });
 
+    [$mapWidth, $mapHeight] = $mapInstance?.getSize() as number[];
+    const observer = new ResizeObserver((_) => {
+      [$mapWidth, $mapHeight] = $mapInstance?.getSize() as number[];
+    });
+
+    observer.observe(document.body);
+
     $mapInstance.on("rendercomplete", () => {
       $renderComplete = true;
     });
 
-    swipeCutThreshold.subscribe(() => $mapInstance?.render());
     layerSwipeActive.subscribe(() => $mapInstance?.render());
     layerSwipeDirection.subscribe(() => $mapInstance?.render());
+    layerSwipeValue.subscribe(() => $mapInstance?.render());
   });
 </script>
 

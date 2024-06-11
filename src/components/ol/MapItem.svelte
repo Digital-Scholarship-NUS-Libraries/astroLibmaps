@@ -10,12 +10,7 @@
   let opacity = 1;
   let loading = false;
 
-  const {
-    map: mapInstance,
-    layerSwipeActive,
-    layerSwipeDirection,
-    swipeCutThreshold,
-  } = getMapContext();
+  const { map: mapInstance } = getMapContext();
   const zoomToLayer = () => {
     $mapInstance?.getView().fit(item.extent, { duration: 300 });
   };
@@ -29,73 +24,43 @@
   gtag("config", "G-8X7NLQ7Q24");
 </script>
 
-<span
-  on:pointerenter|once={() => (load = true)}
-  class="cursor-grab hover:cursor-grabbing flex"
->
-  <label class="swap">
-    <input
-      type="checkbox"
-      id="visibility{mapZIndex}"
-      name="visibility"
-      bind:checked={visible}
-      on:change|once={() => {
-        gtag("event", item.shortname, {
-          event_category: "map_toggle_visibility",
-        });
-      }}
-    />
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 640 512"
-      class="h-4 swap-off fill-current !opacity-70"
-      class:scale-0={visible}
-    >
-      <title>Toggle visibility</title>
-      <use xlink:href="/eye-slash.svg#eye-slash" />
-    </svg>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 576 512"
-      class="h-4 swap-on fill-current"
-    >
-      <title>Toggle visibility</title>
-      <use xlink:href="/eye.svg#eye" />
-    </svg>
-  </label>
+<span on:pointerenter|once={() => (load = true)} class="flex">
+  <!-- <label class="swap"> -->
+  <input
+    type="checkbox"
+    class="checkbox"
+    id="visibility{mapZIndex}"
+    name="visibility"
+    bind:checked={visible}
+    on:change|once={() => {
+      gtag("event", item.shortname, {
+        event_category: "map_toggle_visibility",
+      });
+    }}
+  />
+  <!--   <svg -->
+  <!--     xmlns="http://www.w3.org/2000/svg" -->
+  <!--     height="1em" -->
+  <!--     viewBox="0 0 640 512" -->
+  <!--     class="h-4 swap-off fill-current !opacity-70" -->
+  <!--     class:scale-0={visible} -->
+  <!--   > -->
+  <!--     <title>Toggle visibility</title> -->
+  <!--     <use xlink:href="/eye-slash.svg#eye-slash" /> -->
+  <!--   </svg> -->
+  <!--   <svg -->
+  <!--     xmlns="http://www.w3.org/2000/svg" -->
+  <!--     height="1em" -->
+  <!--     viewBox="0 0 576 512" -->
+  <!--     class="h-4 swap-on fill-current" -->
+  <!--   > -->
+  <!--     <title>Toggle visibility</title> -->
+  <!--     <use xlink:href="/eye.svg#eye" /> -->
+  <!--   </svg> -->
+  <!-- </label> -->
   <button class="grow text-left" on:click={() => (visible = !visible)}>
     {item.shortname}
   </button>
-  <input
-    type="radio"
-    class="hidden"
-    disabled={!$layerSwipeActive}
-    id="swipeValue{mapZIndex}"
-    title="Cut this layer with the layer swipe"
-    name="swipeCutThreshold"
-    value={mapZIndex}
-    bind:group={$swipeCutThreshold}
-  />
-  <label
-    for="swipeValue{mapZIndex}"
-    title="Cut this layer with the layer swipe"
-    class="w-4 mr-1"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1em"
-      viewBox="0 0 512 512"
-      class="h-4 ml-1 mr-4 fill-current transition-all"
-      class:opacity-40={mapZIndex < $swipeCutThreshold || !$layerSwipeActive}
-      class:opacity-100={mapZIndex >= $swipeCutThreshold && $layerSwipeActive}
-      class:rotate-90={$layerSwipeDirection == "vertical"}
-      class:cursor-pointer={$layerSwipeActive}
-    >
-      <use xlink:href="/scissor.svg#scissor" />
-    </svg>
-  </label>
   <button class="m-1" on:click={zoomToLayer} on:keydown={zoomToLayer}>
     <svg
       xmlns="http://www.w3.org/2000/svg"

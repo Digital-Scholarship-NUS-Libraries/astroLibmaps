@@ -1,14 +1,27 @@
 <script lang="ts">
+  import type { cog } from "./types";
   import { getMapContext } from "./context";
   import { draggable } from "@neodrag/svelte";
   import { fade } from "svelte/transition";
+  import CogLayer from "./CogLayer.svelte";
+
+  export let swipeLayerOne: cog;
+  export let swipeLayerTwo: cog;
+
+  let loadingLayerOne = false;
+  let loadingLayerTwo = false;
 
   const {
     map: mapInstance,
     layerSwipeActive,
     layerSwipeDirection,
     layerSwipeValue,
+    isSwipeLoading,
+    mapWidth,
+    mapHeight,
   } = getMapContext();
+
+  $: $isSwipeLoading = loadingLayerOne || loadingLayerTwo;
 
   let position = { x: 0, y: 0 };
   const startSwipeValue = $layerSwipeValue;
@@ -18,27 +31,17 @@
       $layerSwipeValue = startSwipeValue;
     }
   });
-
-  let innerWidth = window.innerWidth;
-  let innerHeight = window.innerHeight;
-
-  const observer = new ResizeObserver((_) => {
-    innerWidth = window.innerWidth;
-    innerHeight = window.innerHeight;
-  });
-
-  observer.observe(document.body);
 </script>
 
 {#if $layerSwipeActive}
   {#if $layerSwipeDirection === "horizontal"}
     <divider
-      style="--offset:{$layerSwipeValue.y * innerHeight - 4 + 'px'};"
+      style="--offset:{$layerSwipeValue.y * $mapHeight - 4 + 'px'};"
       class="absolute top-[var(--offset)] block w-full h-2 backdrop-blur-md bg-base-100/50"
     />
   {:else}
     <divider
-      style="--offset:{$layerSwipeValue.x * innerWidth - 4 + 'px'};"
+      style="--offset:{$layerSwipeValue.x * $mapWidth - 4 + 'px'};"
       class="absolute top-0 left-[var(--offset)] block h-full w-2 backdrop-blur-md bg-base-100/50"
     />
   {/if}
@@ -55,8 +58,8 @@
       on:neodrag={(e) => {
         position = { x: e.detail.offsetX, y: e.detail.offsetY };
         $layerSwipeValue = {
-          x: startSwipeValue.x + e.detail.offsetX / window.innerWidth,
-          y: startSwipeValue.y + e.detail.offsetY / window.innerHeight,
+          x: startSwipeValue.x + e.detail.offsetX / $mapWidth,
+          y: startSwipeValue.y + e.detail.offsetY / $mapHeight,
         };
         $mapInstance?.render();
       }}
@@ -89,4 +92,26 @@
       {/if}
     </swipe>
   </swipeContainer>
+  {#if !!swipeLayerOne?.cogurl}
+    {#key swipeLayerOne}
+      <CogLayer
+        url={swipeLayerOne.cogurl}
+        isSwipeLayer="one"
+        zIndex={201}
+        visible={true}
+        bind:loading={loadingLayerOne}
+      />
+    {/key}
+  {/if}
+  {#if !!swipeLayerTwo?.cogurl}
+    {#key swipeLayerTwo}
+      <CogLayer
+        url={swipeLayerTwo.cogurl}
+        isSwipeLayer="two"
+        zIndex={200}
+        visible={true}
+        bind:loading={loadingLayerTwo}
+      />
+    {/key}
+  {/if}
 {/if}
