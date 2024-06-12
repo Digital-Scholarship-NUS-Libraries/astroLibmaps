@@ -51,11 +51,7 @@
       <use xlink:href="/extent.svg#extent" />
     </svg>
   </button>
-  <a
-    href="/maps/{item.slug}"
-    draggable="true"
-    on:dragstart|preventDefault|stopPropagation
-  >
+  <a href="/maps/{item.slug}">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
@@ -68,7 +64,10 @@
   </a>
 </span>
 {#if visible}
-  <span class="flex" transition:slide>
+  <span
+    class="flex hover:bg-transparent focus:bg-transparent active:!bg-transparent"
+    transition:slide
+  >
     <span
       class="loading loading-spinner loading-sm mr-1 transition-opacity"
       class:opacity-0={!loading}
@@ -93,8 +92,6 @@
       max={1}
       step={0.01}
       bind:value={opacity}
-      draggable="true"
-      on:dragstart|preventDefault|stopPropagation
     />
   </span>
 {/if}
