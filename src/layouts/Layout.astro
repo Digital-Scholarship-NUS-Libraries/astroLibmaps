@@ -83,7 +83,12 @@ const metaTitle = `${
     </script>
   </head>
   <body class="m-0">
-    <Libmaps client:load mapsInfo={mapsInfo} transition:persist="maps" />
+    <Libmaps
+      client:load
+      mapsInfo={mapsInfo}
+      transition:persist
+      transition:persist-props
+    />
     <div
       id="menuButton"
       class="absolute top-4 left-[-800px] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
