@@ -25,10 +25,9 @@
 </script>
 
 <span on:pointerenter|once={() => (load = true)} class="flex">
-  <!-- <label class="swap"> -->
   <input
     type="checkbox"
-    class="checkbox"
+    class="checkbox checkbox-sm"
     id="visibility{mapZIndex}"
     name="visibility"
     bind:checked={visible}
@@ -38,26 +37,6 @@
       });
     }}
   />
-  <!--   <svg -->
-  <!--     xmlns="http://www.w3.org/2000/svg" -->
-  <!--     height="1em" -->
-  <!--     viewBox="0 0 640 512" -->
-  <!--     class="h-4 swap-off fill-current !opacity-70" -->
-  <!--     class:scale-0={visible} -->
-  <!--   > -->
-  <!--     <title>Toggle visibility</title> -->
-  <!--     <use xlink:href="/eye-slash.svg#eye-slash" /> -->
-  <!--   </svg> -->
-  <!--   <svg -->
-  <!--     xmlns="http://www.w3.org/2000/svg" -->
-  <!--     height="1em" -->
-  <!--     viewBox="0 0 576 512" -->
-  <!--     class="h-4 swap-on fill-current" -->
-  <!--   > -->
-  <!--     <title>Toggle visibility</title> -->
-  <!--     <use xlink:href="/eye.svg#eye" /> -->
-  <!--   </svg> -->
-  <!-- </label> -->
   <button class="grow text-left" on:click={() => (visible = !visible)}>
     {item.shortname}
   </button>

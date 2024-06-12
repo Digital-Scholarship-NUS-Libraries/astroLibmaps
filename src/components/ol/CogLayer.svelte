@@ -3,6 +3,7 @@
   import GeoTIFF from "ol/source/GeoTIFF";
   import { getMapContext } from "./context";
   import { onDestroy } from "svelte";
+  import { getRenderPixel } from "ol/render";
   export let url: string;
   export let zIndex: number = 0;
   export let visible: boolean;
@@ -16,7 +17,6 @@
     layerSwipeDirection,
     layerSwipeValue,
     mapWidth,
-    mapHeight,
   } = getMapContext();
 
   const cogSource = new GeoTIFF({
@@ -63,24 +63,26 @@
       gl.clearColor(0, 0, 0, 0);
       gl.enable(gl.SCISSOR_TEST);
 
+      const topRight = getRenderPixel(event, [$mapWidth, 0]);
+
       if ($layerSwipeDirection == "vertical") {
-        const swipeWidth = Math.round($mapWidth * $layerSwipeValue.x);
+        const swipeWidth = Math.round(topRight[0] * $layerSwipeValue.x);
 
         if (isSwipeLayer == "one") {
-          gl.scissor(0, 0, swipeWidth, $mapHeight);
+          gl.scissor(0, 0, swipeWidth, topRight[1]);
           gl.clear(gl.COLOR_BUFFER_BIT);
         } else {
-          gl.scissor(swipeWidth, 0, $mapWidth - swipeWidth, $mapHeight);
+          gl.scissor(swipeWidth, 0, topRight[0] - swipeWidth, topRight[1]);
           gl.clear(gl.COLOR_BUFFER_BIT);
         }
       } else {
-        const swipeHeight = Math.round($mapHeight * (1 - $layerSwipeValue.y));
+        const swipeHeight = Math.round(topRight[1] * (1 - $layerSwipeValue.y));
 
         if (isSwipeLayer == "one") {
-          gl.scissor(0, swipeHeight, $mapWidth, $mapHeight - swipeHeight);
+          gl.scissor(0, swipeHeight, topRight[0], topRight[1] - swipeHeight);
           gl.clear(gl.COLOR_BUFFER_BIT);
         } else {
-          gl.scissor(0, 0, $mapWidth, swipeHeight);
+          gl.scissor(0, 0, topRight[0], swipeHeight);
           gl.clear(gl.COLOR_BUFFER_BIT);
         }
       }

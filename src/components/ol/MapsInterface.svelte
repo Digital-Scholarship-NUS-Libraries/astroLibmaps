@@ -15,16 +15,25 @@
 
   let interfaceOffset = 0;
 
-  const toggleInterface = () => {
-    if (interfaceOffset == 0) {
-      interfaceOffset = 1;
-    } else {
-      interfaceOffset = 0;
-    }
-  };
+  // const toggleInterface = () => {
+  //   if (interfaceOffset == 0) {
+  //     interfaceOffset = 1;
+  //   } else {
+  //     interfaceOffset = 0;
+  //   }
+  // };
 
   const { layerSwipeActive, layerSwipeDirection, isSwipeLoading } =
     getMapContext();
+
+  let interfaceButton: HTMLDivElement;
+  let mapsInterface: HTMLDivElement;
+  const toggleInterface = () => {
+    interfaceButton.classList.toggle("left-[-800px]");
+    interfaceButton.classList.toggle("left-0");
+    mapsInterface.classList.toggle("left-[-800px]");
+    mapsInterface.classList.toggle("left-0");
+  };
 </script>
 
 <Swipe {swipeLayerOne} {swipeLayerTwo} />
@@ -37,9 +46,9 @@
   <use xlink:href="/NUSLlogoL.svg#nusllogo" />
 </svg>
 <div
+  bind:this={interfaceButton}
   id="interfaceButton"
-  style="--offset:{-800 * (1 - interfaceOffset) + 'px'}"
-  class="absolute top-44 left-[var(--offset)] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="absolute top-44 left-[-800px] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <button
     on:click={toggleInterface}
@@ -56,9 +65,9 @@
   </button>
 </div>
 <div
+  bind:this={mapsInterface}
   id="interface"
-  style="--offset:{-800 * interfaceOffset + 'px'};"
-  class="max-h-[calc(100vh-12rem)] overflow-scroll p-4 my-4 absolute top-40 left-[var(--offset)] rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="max-h-[calc(100vh-12rem)] overflow-scroll p-4 my-4 absolute top-40 left-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <div class="flex items-center pr-6">
     <span class="grow">

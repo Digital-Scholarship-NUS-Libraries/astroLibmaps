@@ -53,9 +53,11 @@ const metaTitle = `${
     <title>{metaTitle}</title>
     <ViewTransitions />
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8X7NLQ7Q24"
-    ></script>
-    <script type="application/javascript">
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8X7NLQ7Q24"></script>
+    <script is:inline type="application/javascript">
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -64,15 +66,47 @@ const metaTitle = `${
 
       gtag("config", "G-8X7NLQ7Q24");
     </script>
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        const menuButton = document.getElementById("menuButton");
+        const menuBar = document.getElementById("menuBar");
+        const menuTitle = document.getElementById("menuTitle");
+        const toggleMenu = () => {
+          menuButton.classList.toggle("left-[-800px]");
+          menuButton.classList.toggle("left-0");
+          menuBar.classList.toggle("left-[-800px]");
+          menuBar.classList.toggle("left-0");
+        };
+        menuButton.addEventListener("click", toggleMenu);
+        menuTitle.addEventListener("click", toggleMenu);
+      });
+    </script>
   </head>
   <body class="m-0">
     <Libmaps client:load mapsInfo={mapsInfo} transition:persist="maps" />
     <div
-      class="absolute top-4 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-r-lg p-4 z-50"
+      id="menuButton"
+      class="absolute top-4 left-[-800px] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+    >
+      <button aria-label="Toggle interface">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+          class="h-9 pr-3.5 fill-current opacity-70 hover:opacity-100"
+        >
+          <use xlink:href="/menu.svg#menu"></use>
+        </svg>
+      </button>
+    </div>
+    <div
+      id="menuBar"
+      class="absolute top-4 left-0 overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-r-lg p-4 z-50 transition-all ease-in-out"
     >
       <header class="grid grid-flow-row sm:grid-flow-col justify-end">
         <div>
-          <h1 class="text-xl font-bold">Historical maps of Singapore</h1>
+          <h1 id="menuTitle" class="text-xl font-bold">
+            Historical maps of Singapore
+          </h1>
           <h2 class="text-xs">Digitised by Department of Geography</h2>
           <h2 class="text-xs">National University of Singapore</h2>
           <nav class="tabs tabs-bordered">
