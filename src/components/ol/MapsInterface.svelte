@@ -12,6 +12,7 @@
 
   let swipeLayerOne: cog;
   let swipeLayerTwo: cog;
+  let swipeLayersOpacity = 1;
 
   let interfaceOffset = 0;
 
@@ -36,7 +37,7 @@
   };
 </script>
 
-<Swipe {swipeLayerOne} {swipeLayerTwo} />
+<Swipe {swipeLayerOne} {swipeLayerTwo} {swipeLayersOpacity} />
 <svg
   xmlns="http://www.w3.org/2000/svg"
   class="absolute top-8 right-4 h-8 lg:h-12"
@@ -146,6 +147,31 @@
           class:opacity-0={!$isSwipeLoading}
         />
       </div>
+      <span class="flex mt-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 512 512"
+          class="h-4 mt-0.5 mr-2 fill-base-content"
+        >
+          <title>Opacity</title>
+          <path
+            d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+          />
+        </svg>
+        <input
+          type="range"
+          class="range range-sm"
+          id="transparency"
+          name="transparency"
+          min={0}
+          max={1}
+          step={0.01}
+          bind:value={swipeLayersOpacity}
+          draggable="true"
+          on:dragstart|preventDefault|stopPropagation
+        />
+      </span>
       <label class="form-control">
         <select
           bind:value={swipeLayerOne}

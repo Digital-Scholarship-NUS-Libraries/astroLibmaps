@@ -7,6 +7,7 @@
 
   export let swipeLayerOne: cog;
   export let swipeLayerTwo: cog;
+  export let swipeLayersOpacity = 1;
 
   let loadingLayerOne = false;
   let loadingLayerTwo = false;
@@ -99,6 +100,7 @@
         isSwipeLayer="one"
         zIndex={201}
         visible={true}
+        opacity={swipeLayersOpacity}
         bind:loading={loadingLayerOne}
       />
     {/key}
@@ -110,6 +112,7 @@
         isSwipeLayer="two"
         zIndex={200}
         visible={true}
+        opacity={swipeLayersOpacity}
         bind:loading={loadingLayerTwo}
       />
     {/key}
