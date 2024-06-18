@@ -23,3 +23,7 @@ Run in dev mode.
 Build locally to test.
 
 `npm run build` or `pnpm run build`
+
+Test the local build
+
+`npm run preview` or `pnpm preview`
