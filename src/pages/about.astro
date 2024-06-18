@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="About">
   <Fragment slot="content">
+    <h2>Welcome!</h2>
     <p>
       This website is maintained by National University of Singapore (NUS)
       Libraries to support research and teaching. The maps in this website were
@@ -15,31 +16,179 @@ import Layout from "../layouts/Layout.astro";
       Should you have feedback or enquiries, please contact
       <a href="mailto:techcentral@nus.edu.sg">techcentral@nus.edu.sg</a>.
     </p>
+    <p>
+      Please note that NUS Libraries only owns permission to provide this
+      interface and the relevant services to view and analyze the maps. If you
+      wish to integrate the maps in one of your project and want a copy of them,
+      we encourage you to use services from the National Archives, which allow
+      users to request copies.
+    </p>
+
+    <h2>Map Controls</h2>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+        class="inline-block h-8 mr-4 fill-base-content"
+      >
+        <title>Zoom in</title>
+        <use xlink:href="/zoomIn.svg#zoomIn"></use>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+        class="inline-block h-8 mr-4 fill-base-content"
+      >
+        <title>Zoom out</title>
+        <use xlink:href="/zoomOut.svg#zoomOut"></use>
+      </svg>
+      Zoom Control
+    </h3>
+    <p>
+      For a closer inspection, click on the magnifying glass icon to zoom in and
+      out. You can also use the usual gestures on your touchscreen, trackpad or
+      mousewheel.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 640 512"
+        class="inline-block h-6 mr-4 fill-base-content"
+      >
+        <title>Toggle fullscreen</title>
+        <use xlink:href="/maximize.svg#maximize"></use>
+      </svg>
+      Fullscreen
+    </h3>
+    <p>
+      If your device supports it, click on the icon to put the site in
+      fullscreen. This will hide all content except the maps and the interface.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="4em"
+        viewBox="0 0 20 20"
+        class="inline-block h-6 mr-4 fill-base-content"
+      >
+        <title>Toggle swipe layer</title>
+        <use xlink:href="/noun-split-4453312.svg#split"></use>
+      </svg>
+      Swipe
+    </h3>
+    <p>
+      To view and compare multiple maps, click on the layer swipe icon, you will
+      then be able to choose each layer you want to compare. Toggle between
+      horizontal and vertical views of chosen maps accordingly for best results.
+      You can set the transparency of both layers with the slider.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 384 512"
+        class="inline-block h-6 mr-4 fill-base-content"
+      >
+        <title>Geolocate me</title>
+        <use xlink:href="/location.svg#location"></use>
+      </svg>
+      Geolocation
+    </h3>
+    <p>
+      Click on the location icon in the left panel to allow location sharing
+      permissions, and discover how your exact location has evolved over time by
+      comparing and studying the different map layers.
+    </p>
+    <h2>Layer Controls</h2>
+    <h3>
+      <input
+        type="checkbox"
+        class="checkbox checkbox-sm mr-4"
+        id="visibility"
+      /><label for="visibility">View Maps</label>
+    </h3>
+    <p>
+      Click on each layer's title or the checkbox next to it to toggle its
+      visibility.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 512 512"
+        class="inline-block h-4 mr-4 fill-base-content"
+      >
+        <title>Opacity</title>
+        <path
+          d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+        ></path>
+      </svg>Changing Opacity
+    </h3>
+    <p>
+      When a layer is visible, a slider appears under its name. You can set the
+      transparency of the layer on this slider.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 448 512"
+        class="inline-block h-4 mr-4 fill-base-content"
+      >
+        <title>Zoom To Layer</title>
+        <use xlink:href="/extent.svg#extent"></use>
+      </svg>
+      Zoom to Layer
+    </h3>
+    <p>
+      Center and the zoom the map on a specific layer by clicking on this icon.
+    </p>
+    <h3>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 512 512"
+        class="inline-block h-4 mr-4 fill-base-content"
+      >
+        <title>Information</title>
+        <use xlink:href="/info.svg#info"></use>
+      </svg>
+      Metadata
+    </h3>
+    <p>
+      Click on the information icon next to each map layer to learn more about
+      the map.
+    </p><p>
+      You can also click on the Metadata tab from the main menu to access the
+      overview of all metadata and specific information.
+    </p>
 
     <h2>Website Credits</h2>
     <table>
       <tr>
-        <th
+        <th scope="row" class="text-left"
           >Data Migration, System Architecture, UX Design and Implementation</th
         >
         <td>Gaetan Boisson</td>
       </tr>
       <tr>
-        <th>Systems Support</th>
+        <th scope="row" class="text-left">Systems Support</th>
         <td>Ashton Tay, Tan Cher Ern, NUS IT</td>
       </tr>
       <tr>
-        <th>User Testing, Copy and Guidance</th>
+        <th scope="row" class="text-left">User Testing, Copy and Guidance</th>
         <td
           >Richard Ho, Michelle Song Yun Quak, Steven Dick Mun Chow, Magdeline
           Tao Tao Ng</td
         >
       </tr>
-
-      <tr><th>The original project was delivered by the following team:</th></tr
-      >
+    </table>
+    <p>The original project was delivered by the following team:</p>
+    <table>
       <tr>
-        <th>Map Georeferencing and Digitisation</th>
+        <th scope="row" class="text-left"
+          >Map Georeferencing and Digitisation</th
+        >
         <td>
           Dr. Rick Ick-Hoi Kim, Raymond Huang Jinliang, A/P Feng Chen-Chieh, A/P
           Wang Yi-Chen and Prof. David Taylor, with the support of NUS Strategic
@@ -47,41 +196,41 @@ import Layout from "../layouts/Layout.astro";
         </td>
       </tr>
       <tr>
-        <th>Technical Consultants</th>
+        <th scope="row" class="text-left">Technical Consultants</th>
         <td>Dr. Rick Ick-Hoi Kim, Raymond Huang Jinliang</td>
       </tr>
       <tr>
-        <th>Cartographic History Consultant</th>
+        <th scope="row" class="text-left">Cartographic History Consultant</th>
         <td>Mok Ly Yng</td>
       </tr>
       <tr>
-        <th>Systems Support</th>
+        <th scope="row" class="text-left">Systems Support</th>
         <td>Ng Boon Hwee, Aria Wenda Ongkowinoto, NUS IT</td>
       </tr>
       <tr>
-        <th>Map Service Publishing</th>
+        <th scope="row" class="text-left">Map Service Publishing</th>
         <td>Emily Sugerman, Estella Ye, Richard Ho, Feng Yikang</td>
       </tr>
       <tr>
-        <th>Map Mosaicking</th>
+        <th scope="row" class="text-left">Map Mosaicking</th>
         <td>Esther Ng, Feng Yikang</td>
       </tr>
       <tr>
-        <th>Metadata</th>
+        <th scope="row" class="text-left">Metadata</th>
         <td>
           Dr. Rick Ick-Hoi Kim, Kelman Chiang, Esther Ng, Estella Ye, Feng
           Yikang
         </td>
       </tr>
       <tr>
-        <th>Administration</th>
+        <th scope="row" class="text-left">Administration</th>
         <td>
           Dr. Sim Chuin Peng, Tan Geok Kee, Gerrie Kow, Yow Wei Chui, Foo Yan
           Chuin, Loh Yuexia, Feng Yikang
         </td>
       </tr>
       <tr>
-        <th>Website Coordinator</th>
+        <th scope="row" class="text-left">Website Coordinator</th>
         <td>Feng Yikang</td>
       </tr>
     </table>
