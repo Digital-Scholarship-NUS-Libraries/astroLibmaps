@@ -14,16 +14,6 @@
   let swipeLayerTwo: cog;
   let swipeLayersOpacity = 1;
 
-  let interfaceOffset = 0;
-
-  // const toggleInterface = () => {
-  //   if (interfaceOffset == 0) {
-  //     interfaceOffset = 1;
-  //   } else {
-  //     interfaceOffset = 0;
-  //   }
-  // };
-
   const { layerSwipeActive, layerSwipeDirection, isSwipeLoading } =
     getMapContext();
 
