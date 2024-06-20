@@ -29,7 +29,7 @@
 
 <svelte:document on:fullscreenchange={handleFullscreenChange} />
 
-<label class="swap mr-[10px]">
+<label class="swap mr-[10px] mb-1">
   <input
     type="checkbox"
     id="fullscreen"

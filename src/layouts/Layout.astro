@@ -79,6 +79,7 @@ const metaTitle = `${
         };
         menuButton.addEventListener("click", toggleMenu);
         menuTitle.addEventListener("click", toggleMenu);
+        setTimeout(toggleMenu, 1000);
       });
     </script>
   </head>
@@ -91,13 +92,13 @@ const metaTitle = `${
     />
     <div
       id="menuButton"
-      class="absolute top-4 left-[-800px] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+      class="absolute top-4 left-0 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
     >
       <button aria-label="Toggle interface">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
-          class="h-9 pr-3.5 fill-current opacity-70 hover:opacity-100"
+          class="h-6 pr-3.5 fill-current opacity-70 hover:opacity-100"
         >
           <use xlink:href="/menu.svg#menu"></use>
         </svg>
@@ -105,7 +106,7 @@ const metaTitle = `${
     </div>
     <div
       id="menuBar"
-      class="absolute top-4 left-0 overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-r-lg p-4 z-50 transition-all ease-in-out"
+      class="absolute top-4 left-[-800px] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-r-lg p-4 z-50 transition-all ease-in-out"
     >
       <header class="grid grid-flow-row sm:grid-flow-col justify-end">
         <div>
@@ -140,7 +141,7 @@ const metaTitle = `${
         <div class="absolute top-4 right-0 max-h-[calc(100vh-2em)] overflow-y-scroll backdrop-blur-md bg-base-100/80 rounded-l-lg p-4 z-50">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="absolute top-4 right-4 h-8 lg:h-12"
+            class="absolute top-4 right-4 h-8 lg:h-12 fill-current"
             viewBox="0 0 279 60"
           >
             <title>NUS Libraries</title>

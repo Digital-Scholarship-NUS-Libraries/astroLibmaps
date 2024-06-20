@@ -37,13 +37,13 @@
           width: 2,
         }),
       }),
-    })
+    }),
   );
 
   geolocation.on("change:position", () => {
     const coordinates = geolocation.getPosition();
     positionFeature.setGeometry(
-      coordinates ? new Point(coordinates) : undefined
+      coordinates ? new Point(coordinates) : undefined,
     );
   });
 
@@ -97,7 +97,7 @@
 <button
   on:click={handleGeoLocate}
   on:keydown={handleGeoLocate}
-  class="mr-3"
+  class="mr-3 mb-1"
   aria-label="Geolocate me"
 >
   <svg

@@ -27,7 +27,7 @@
 <span on:pointerenter|once={() => (load = true)} class="flex">
   <input
     type="checkbox"
-    class="checkbox checkbox-sm"
+    class="checkbox checkbox-md"
     id="visibility{mapZIndex}"
     name="visibility"
     bind:checked={visible}
@@ -40,12 +40,12 @@
   <button class="grow text-left" on:click={() => (visible = !visible)}>
     {item.shortname}
   </button>
-  <button class="m-1" on:click={zoomToLayer} on:keydown={zoomToLayer}>
+  <button class="mr-3" on:click={zoomToLayer} on:keydown={zoomToLayer}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 448 512"
-      class="h-4 fill-current opacity-70 hover:opacity-100"
+      class="h-5 fill-current opacity-70 hover:opacity-100"
     >
       <title>Zoom To Layer</title>
       <use xlink:href="/extent.svg#extent" />
@@ -56,7 +56,7 @@
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 fill-current opacity-70 hover:opacity-100"
+      class="h-5 mr-0.5 fill-current opacity-70 hover:opacity-100"
     >
       <title>Information</title>
       <use xlink:href="/info.svg#info" />
@@ -69,14 +69,14 @@
     transition:slide
   >
     <span
-      class="loading loading-spinner loading-sm mr-1 transition-opacity"
+      class="loading loading-spinner loading-md mr-1 transition-opacity"
       class:opacity-0={!loading}
     />
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="1em"
       viewBox="0 0 512 512"
-      class="h-4 fill-base-content"
+      class="h-5 fill-base-content"
     >
       <title>Opacity</title>
       <path

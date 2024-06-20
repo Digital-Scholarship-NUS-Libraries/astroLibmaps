@@ -7,6 +7,7 @@
   import Swipe from "./Swipe.svelte";
   import { getMapContext } from "./context";
   import type { cog } from "./types.ts";
+  import { onMount } from "svelte";
 
   export let mapsInfo: cog[];
 
@@ -25,6 +26,9 @@
     mapsInterface.classList.toggle("left-[-800px]");
     mapsInterface.classList.toggle("left-0");
   };
+  onMount(() => {
+    setTimeout(toggleInterface, 1200);
+  });
 </script>
 
 <Swipe {swipeLayerOne} {swipeLayerTwo} {swipeLayersOpacity} />
@@ -39,7 +43,7 @@
 <div
   bind:this={interfaceButton}
   id="interfaceButton"
-  class="absolute top-44 left-[-800px] p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="absolute top-44 left-0 p-4 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
   <button
     on:click={toggleInterface}
@@ -49,7 +53,7 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
-      class="h-10 fill-current opacity-70 hover:opacity-100"
+      class="h-8 fill-current opacity-70 hover:opacity-100"
     >
       <use xlink:href="/layers.svg#layers" />
     </svg>
@@ -58,10 +62,10 @@
 <div
   bind:this={mapsInterface}
   id="interface"
-  class="max-h-[calc(100vh-12rem)] overflow-scroll p-4 my-4 absolute top-40 left-0 rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
+  class="max-h-[calc(100vh-12rem)] overflow-scroll my-4 absolute top-40 left-[-800px] rounded-r-lg backdrop-blur-md bg-base-100/80 transition-all ease-in-out"
 >
-  <div class="flex items-center pr-6">
-    <span class="grow">
+  <div class="flex items-center px-4 pt-4">
+    <span class="grow mr-24">
       <button
         on:click={toggleInterface}
         on:keydown={toggleInterface}
@@ -70,7 +74,7 @@
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
-          class="h-10 fill-current opacity-70 hover:opacity-100"
+          class="h-8 fill-current opacity-70 hover:opacity-100"
         >
           <use xlink:href="/xmark.svg#xmark" />
         </svg>
@@ -79,7 +83,7 @@
     <Geolocation />
     <Fullscreen />
     <Zoom />
-    <label class="swap ml-4">
+    <label class="swap ml-4 mb-1">
       <input
         type="checkbox"
         id="layerswipe"
@@ -88,10 +92,8 @@
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="4em"
         viewBox="0 0 20 20"
-        class="h-6 swap-off fill-current !opacity-40"
-        class:scale-0={$layerSwipeActive}
+        class="h-6 swap-on fill-current"
         class:rotate-90={$layerSwipeDirection == "horizontal"}
       >
         <title>Toggle swipe layer</title>
@@ -99,9 +101,8 @@
       </svg>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        height="4em"
         viewBox="0 0 20 20"
-        class="h-6 swap-on fill-current"
+        class="h-6 swap-off fill-current opacity-70 hover:!opacity-100"
         class:rotate-90={$layerSwipeDirection == "horizontal"}
       >
         <title>Toggle swipe layer</title>
@@ -110,7 +111,7 @@
     </label>
   </div>
   {#if $layerSwipeActive}
-    <div class="mt-2 ml-2 pr-6" transition:slide>
+    <div class="mt-2 mx-4" transition:slide>
       <div class="flex items-center">
         <fieldset class="join">
           <input
@@ -140,9 +141,8 @@
       <span class="flex mt-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          height="1em"
           viewBox="0 0 512 512"
-          class="h-4 mt-0.5 mr-2 fill-base-content"
+          class="h-5 mr-2 fill-base-content"
         >
           <title>Opacity</title>
           <path
@@ -186,9 +186,9 @@
       </label>
     </div>
   {/if}
-  <ul class="menu">
+  <ul class="menu px-0">
     {#each mapsInfo as item, index}
-      <li>
+      <li class="mx-0">
         <MapItem {item} mapZIndex={mapsInfo.length - index} />
       </li>
     {/each}
