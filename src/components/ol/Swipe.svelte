@@ -98,6 +98,7 @@
       <CogLayer
         url={swipeLayerOne.cogurl}
         isSwipeLayer="one"
+        secondLayerIsDefined={!!swipeLayerTwo?.cogurl}
         zIndex={201}
         visible={true}
         opacity={swipeLayersOpacity}

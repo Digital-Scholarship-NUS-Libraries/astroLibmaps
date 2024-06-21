@@ -10,6 +10,7 @@
   export let opacity = 1;
   export let loading = false;
   export let isSwipeLayer: "one" | "two" | undefined = undefined;
+  export let secondLayerIsDefined = false;
 
   const {
     map: mapInstance,
@@ -61,6 +62,9 @@
     const gl = event.context as WebGLRenderingContext;
     if (isSwipeLayer && $layerSwipeActive) {
       gl.clearColor(0, 0, 0, 0);
+      if (isSwipeLayer == "two" || !secondLayerIsDefined) {
+        gl.clear(gl.COLOR_BUFFER_BIT);
+      }
       gl.enable(gl.SCISSOR_TEST);
 
       const topRight = getRenderPixel(event, [$mapWidth, 0]);
@@ -70,20 +74,16 @@
 
         if (isSwipeLayer == "one") {
           gl.scissor(0, 0, swipeWidth, topRight[1]);
-          gl.clear(gl.COLOR_BUFFER_BIT);
         } else {
           gl.scissor(swipeWidth, 0, topRight[0] - swipeWidth, topRight[1]);
-          gl.clear(gl.COLOR_BUFFER_BIT);
         }
       } else {
         const swipeHeight = Math.round(topRight[1] * (1 - $layerSwipeValue.y));
 
         if (isSwipeLayer == "one") {
           gl.scissor(0, swipeHeight, topRight[0], topRight[1] - swipeHeight);
-          gl.clear(gl.COLOR_BUFFER_BIT);
         } else {
           gl.scissor(0, 0, topRight[0], swipeHeight);
-          gl.clear(gl.COLOR_BUFFER_BIT);
         }
       }
     }

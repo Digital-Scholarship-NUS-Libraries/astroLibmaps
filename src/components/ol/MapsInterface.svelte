@@ -167,7 +167,7 @@
           bind:value={swipeLayerOne}
           class="mt-4 select select-ghost select-bordered"
         >
-          <option disabled selected>Pick first layer</option>
+          <option selected>No first layer selected</option>
           {#each mapsInfo as item}
             <option value={item}>{item.shortname}</option>
           {/each}
@@ -178,7 +178,7 @@
           bind:value={swipeLayerTwo}
           class="mt-4 select select-ghost select-bordered"
         >
-          <option disabled selected>Pick second layer</option>
+          <option selected>No second layer selected</option>
           {#each mapsInfo as item}
             <option value={item}>{item.shortname}</option>
           {/each}
